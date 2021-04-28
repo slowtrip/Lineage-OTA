@@ -1,6 +1,6 @@
 # Information
 
-This repository provides LineageOS OTA releases for the V30, V40 and V50
+This repository provides LineageOS OTA releases for the Lenovo Z5s [jd2019]
 
 # Requirements
 
