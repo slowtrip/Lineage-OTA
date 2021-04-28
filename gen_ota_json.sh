@@ -39,8 +39,8 @@ TAG=$(echo "${DEVICE}-${d}")
 url="https://github.com/CakesTwix/Lineage-OTA/releases/download/${TAG}/${FILENAME}"
 sed -i "s|${oldurl}|\"${url}\",|g" $DEVICE.json
 
-git add $DEVICE.json
-git commit -m "Update ${DEVICE} to ${d}"
-git push https://github.com/CakesTwix/Lineage-OTA lineage-18.1
+#git add $DEVICE.json
+#git commit -m "Update ${DEVICE} to ${d}"
+#git push https://github.com/CakesTwix/Lineage-OTA lineage-18.1
 
-hub release create -a ../out/target/product/$DEVICE/$FILENAME -a changelog.txt -m "${TAG}" "${TAG}"
+#hub release create -a ../out/target/product/$DEVICE/$FILENAME -a changelog.txt -m "${TAG}" "${TAG}"
