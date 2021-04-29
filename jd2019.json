@@ -1,12 +1,12 @@
 {
   "response": [
     {
-      "datetime": "1619603098",
-      "filename": "lineage-18.1-20210428-UNOFFICIAL-jd2019.zip",
-      "id": "d872740226c714c19c1a00ed7fc4bfda",
+      "datetime": "1619684030",
+      "filename": "lineage-18.1-20210429-UNOFFICIAL-jd2019.zip",
+      "id": "2c568a3be5a976d832db61b6a9db155c",
       "romtype": "UNOFFICIAL",
-      "size": "643493436",
-      "url":"https://github.com/CakesTwix/Lineage-OTA/releases/download/jd2019-20210428/lineage-18.1-20210428-UNOFFICIAL-jd2019.zip",
+      "size": "2c568a3be5a976d832db61b6a9db155c",
+      "url":"https://github.com/CakesTwix/Lineage-OTA/releases/download/jd2019-20210429/lineage-18.1-20210429-UNOFFICIAL-jd2019.zip",
       "version": "18.1"
     }
   ]
