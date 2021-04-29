@@ -1,4 +1,4979 @@
 
 ########################################
-/device/lenovo/jd2019 Changes:
+device/lenovo/jd2019 Changes:
+commit b58f9a4461a93e861d860465cceaf9911ae1b41a
+Author: ashuk1109 <ashutoshkarwa123@gmail.com>
+Date:   Tue Apr 13 08:22:03 2021 +0000
+
+    [TMP] jd2019: sepolicy: Make vendor_fm_app permissive
+
+commit 0d055e6d0b940f392dbcdf01c740cb9f7068f5a8
+Author: weivincewang <wvw@google.com>
+Date:   Thu Mar 26 23:19:44 2020 +0100
+
+    jd2019: rootdir: Launch bootanimation early
+    
+    Also includes:
+    
+    commit 82dcb788c9c2ee5d50e75e050550cc841262d3df
+    Author: Kuba Wojciechowski <nullbytepl@gmail.com>
+    Date:   Mon Jun 15 21:01:20 2020 +0200
+    
+        ginkgo: rootdir: Move boot animation early start to late-init
+    
+         * "on init" is triggered in offline charge mode too causing
+           boot animation to launch in that mode.
+    
+         * Ref: https://github.com/aosp-mirror/platform_system_core/blob/150687b/init/init.cpp#L854-L866
+    
+    Signed-off-by: Adithya R <gh0strider.2k18.reborn@gmail.com>
+
+commit d751b612c212b1dc809250571208542cbc29966d
+Author: Akash <akashniki@gmail.com>
+Date:   Sat Aug 8 21:39:27 2020 +0200
+
+    jd2019: Fix mic issues in apps like WhatsApp
+    
+    Change-Id: I64d34f95386c14a2003228f6a5ed9a61602b81ae
+
+commit 508ce4d6620701c2a35e60d07ee4fc58986be785
+Author: XsaviXander <22182013+XsaviXander@users.noreply.github.com>
+Date:   Wed Feb 12 01:51:30 2020 +0000
+
+    jd2019: overlay: Enable freeform windows
+
+commit e400b5dc8d789e262a90cf7546e1bbe224af9f11
+Author: Kevin Jeon <kevinjeon@google.com>
+Date:   Thu Jan 14 20:39:48 2021 +0000
+
+    violet: overlay: Pin surfaceflinger
+    
+    PA Notes:
+    - Not merged to master, but merged to internal master.
+    - Original commit removes libsurfaceflinger but I do not
+      because we have enough memory.
+    
+    Test: Builds as expected after this change, and flashes successfully.
+    Bug: 176197656
+
+commit ac2307c3194e6d4f2d57e7c4d6410cb28fd674f9
+Author: raghavt20 <raghavtandon2000@gmail.com>
+Date:   Tue Apr 13 07:28:11 2021 +0000
+
+    violet: Enable Charging LED by default
+
+commit 23073fac8645224f5bec20ede249f520ce19a033
+Author: Andrew Thomas <itz63c@statixos.com>
+Date:   Tue Mar 23 21:46:08 2021 +0800
+
+    jd2019: Add Notch Bar Killer overlay
+    
+     * This overlay gets rid of the black bar in most apps/games
+       and lets the screen fill past the notch.
+    
+    Change-Id: Ic008ce5d569127d230dc44451929477e063c4471
+    Signed-off-by: Josh Fox (XlxFoXxlX) <joshfox87@gmail.com>
+    Signed-off-by: Anirudh Gupta <anirudhgupta109@gmail.com>
+    Signed-off-by: Adithya R <gh0strider.2k18.reborn@gmail.com>
+
+commit 2710a48fd2af66e27c14c79ba4d652a06b475807
+Author: HsyHusker <misterhusker19@gmail.com>
+Date:   Fri Apr 9 00:00:25 2021 +0800
+
+    jd2019: drop custom thermal config
+    
+    This reverts commit b6dd129962760e1e0b05ef8eed0b3acc754d8e40.
+
+commit a2fdc03a1a24bf1f36d968916053a2c175f53e2e
+Author: Victor <victor@corvusrom.com>
+Date:   Tue Apr 13 07:43:32 2021 +0000
+
+    jd2019: use redfin april fp
+
+commit 9766487d72933b6af20dcfb709b0e0c1bf6362bb
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Sat Jan 5 21:44:39 2019 +0100
+
+    jd2019: Enable Always on display
+    
+    * But disable it by default
+    
+    Change-Id: Ie85e49e38503dc531f262138d8bed465632a41c0
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 815d53fdc42e7aa71f8578d0fd60712db136494d
+Author: Victor <victor@corvusrom.com>
+Date:   Tue Apr 6 18:51:23 2021 +0000
+
+    jd2019: disable hdr for ft8917 panels [1/2]
+    
+    Signed-off-by: Victor <victor@corvusrom.com>
+
+commit 5c1530a07e920ffc54f2dc8c89d0262898c15257
+Author: Victor <victor@corvusrom.com>
+Date:   Tue Mar 30 11:49:32 2021 +0300
+
+    Update flipendo sepolicy
+
+commit fd26fce9c2d17f5113dbc852f0b0a4d093465302
+Author: Victor <victor@corvusrom.com>
+Date:   Wed Mar 17 14:54:41 2021 +0000
+
+    jd2019: overwrite codecs-breakers vendor props with empty value
+
+commit 423b6c7e95ebae609b7309a55e676fd277072437
+Author: Victor <victor@corvusrom.com>
+Date:   Fri Mar 5 22:06:48 2021 +0000
+
+    jd2019: update build fingerprint to redfin march
+    
+    Signed-off-by: Victor <victor@corvusrom.com>
+
+commit 5a3a22c83ce72b1054aff02cb9133625da5e8c3c
+Author: Adrian Roos <roosa@google.com>
+Date:   Tue Mar 2 10:24:01 2021 +0530
+
+    jd2019: Add overlay for masking the notch
+    
+    Bug: 112876936
+    Test: Go to Settings > Developer Options > Simulate display with cutout > "No cutout". Cutout should be hidden. Rotate screen, take screenshots, screenrecord should all work.
+    
+    Signed-off-by: Anirudh Gupta <anirudhgupta109@gmail.com>
+    Signed-off-by: Josh Fox (XlxFoXxlX) <joshfox87@gmail.com>
+    Signed-off-by: Adithya R <gh0strider.2k18.reborn@gmail.com>
+    Signed-off-by: Victor <victor@corvusrom.com>
+
+commit dc29c8ef268073a62419e593504b7c73199b5a94
+Author: Victor <merser2005@gmail.com>
+Date:   Mon Mar 1 11:57:10 2021 +0000
+
+    jd2019: nuke useless for WaveOS vendorsetup.sh script
+    
+    Forgot to nuke in 47c707014406ab88f95ba9fb8712cb2c8a74abb1
+
+commit 8f2d1a48da017e6445c3a67853314b3885b98ae1
+Author: ghostrider-reborn <adithya.r02@outlook.com>
+Date:   Mon Mar 1 11:48:05 2021 +0000
+
+    jd2019: enable display color control
+
+commit 9dcdce462c29a67c79946f38ddc01d0d49ed5336
+Author: Victor <merser2005@gmail.com>
+Date:   Mon Mar 1 11:41:31 2021 +0000
+
+    jd2019: overlay: decrease status bar height a bit
+
+commit 6c82bffa39ec4e3e481369711d2a70357249227a
+Author: Arian <arian.kulmer@web.de>
+Date:   Sat Feb 27 19:37:03 2021 +0530
+
+    jd2019: Add aptX blobs from Pixel 4A
+
+commit b717f935c5ec94ee9bc9a9d0704feb59c30f08e9
+Author: Victor <merser2005@gmail.com>
+Date:   Sun Feb 28 09:36:33 2021 +0000
+
+    jd2019: sepolicy: adress aome denials
+    
+    Signed-off-by: Victor <merser2005@gmail.com>
+
+commit ad2a8a0213ad0bac082380848e0a01f96a877210
+Author: Vishalcj17 <vishalcj@aospa.co>
+Date:   Sat Feb 27 15:21:20 2021 +0000
+
+    jd2019: Update telephony overlay from CAF
+    
+    Signed-off-by: Vishalcj17 <vishalcj@aospa.co>
+
+commit 9d186789c261f658f30754890c6a8082ea929303
+Author: Akash Srivastava <akashniki@gmail.com>
+Date:   Tue Oct 6 13:14:13 2020 +0200
+
+    jd2019: Disable pocked mode
+
+commit ff63759df44daeadd797933fb341f9bf78387810
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Fri May 4 23:36:32 2018 -0700
+
+    ginkgo: overlay: Configure SQLite to operate in MEMORY mode
+    
+    This change yields considerable SQLite performance gains. It
+    should be generally safe as this device has irremovable battery.
+    
+    Some OEMs have been doing this for years.
+    
+    Signed-off-by: Jesse Chan <jc@lineageos.org>
+    Change-Id: Ic775c3fa735a32653d8e7f4c15cac26c6ebc262c
+
+commit 3308b8411295464b801f9449d343274e648ace54
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Sat Apr 21 00:16:54 2018 -0700
+
+    jd2019: overlay: Set fast charging indicator threshold to 10.8W
+    
+    We no longer call 7.5W charging "fast charging" nowadays
+    
+    Change-Id: I3a11f50f89933bd44b70d9f30a6e74a3d77abb25
+
+commit 80bb42526e3347f277f96e4209be0271237b0788
+Author: ghostrider-reborn <adithya.r02@outlook.com>
+Date:   Thu Feb 18 18:46:43 2021 +0530
+
+    jd2019: overlay: Force show network traffic on statusbar
+    
+     * we have a small water-drop cutout that can fit in the
+       network speed monitor alongside other system icons
+
+commit 16e0e5fa18bd3b4ab1aff5a5c41cc33a7a87251e
+Author: Victor <merser2005@gmail.com>
+Date:   Mon Feb 22 07:47:32 2021 +0000
+
+    jd2019: add deps
+
+commit 12ecb705271aff2207408923d8eafa512167c577
+Author: Victor <merser2005@gmail.com>
+Date:   Mon Feb 22 07:01:21 2021 +0000
+
+    jd2019: Enable custom audio policy
+    
+    This reverts commit 3400095d162408d9fe5e1a273c7d539729cc851a.
+    It's fixed already now so let it be enabled
+
+commit caf7989d67e5b67badfb6923df9b6e5114e96326
+Author: Ultra119 <64977575+Ultra119@users.noreply.github.com>
+Date:   Thu Jun 4 22:04:28 2020 +0300
+
+    jd2019: add README
+
+commit 7443b84ec410de150d3fadda9f32bf853d102b7a
+Author: LinkBoi <50962670+LinkBoi00@users.noreply.github.com>
+Date:   Sat Feb 20 19:25:33 2021 +0000
+
+    jd2019: BoardConfig: define TARGET_OTA_ASSERT_DEVICE
+    
+    Needed for Lenovo Z6 Lite and Lenovo Z5 Pro for flashing
+
+commit ed7c796d42d9387a0a6fad3a994d3e6eca03eea8
+Author: Nauval Rizky <enuma.alrizky@gmail.com>
+Date:   Sat Feb 20 18:57:03 2021 +0000
+
+    [SQUASH] jd2019: parts: Introduce raise to wake gesture
+
+commit d08f8d5ecff1ffc6fb3eada36a1ce10aae1c3d5d
+Author: akhilnarang <akhilnarang.1999@gmail.com>
+Date:   Wed Feb 10 19:01:54 2021 +0100
+
+    jd2019: Flash dtbo and print what's being flashed
+
+commit c453631da9f1e37b55590184d4cb053a2e7530cf
+Author: Adithya R <gh0strider.2k18.reborn@gmail.com>
+Date:   Sat Feb 20 07:06:56 2021 +0000
+
+    jd2019: add prebuilt dtbo
+
+commit 47c707014406ab88f95ba9fb8712cb2c8a74abb1
+Author: Victor <merser2005@gmail.com>
+Date:   Sat Feb 20 06:53:55 2021 +0000
+
+    jd2019: Welcome WaveOS
+
+commit 5383db9191db3c96f0ebfe9970988d3b4ef72b8b
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Wed Feb 17 15:29:54 2021 +0100
+
+    jd2019: Enable aux cameras
+
+commit 385c3c64adde9742a422bc44ea6bb6d0f12c9fa0
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Mon Feb 15 15:35:27 2021 +0100
+
+    jd2019: addressed some denials
+
+commit ded482342849419b88d997af39bafb9aa7a62ead
+Author: Victor <merser2005@gmail.com>
+Date:   Sat Feb 20 06:34:19 2021 +0000
+
+    jd2019: rebrand trees
+
+commit 2449b91a0abec27d435e7be38fe3c7dbb9636729
+Author: Victor <merser2005@gmail.com>
+Date:   Sun Feb 14 20:03:41 2021 +0000
+
+    kunlun2: Blacklist google hotword service again
+    
+    This reverts commit 0472d0665d02c48e9e05c00124e26a9612106205.
+
+commit 0c609fe3fc182776d315049812b81056522e4979
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Feb 14 20:01:02 2021 +0000
+
+    kunlun2: add hacks to build with broken rules
+
+commit 071f211d83d70ba19e3a220c42b95a081d6d0487
+Author: Victor <merser2005@gmail.com>
+Date:   Sun Feb 14 14:16:41 2021 +0000
+
+    kunlun2: add back call recording overlay
+    
+    This reverts commit 6019905c0cb002e5520ab62b8c96aaa2b9c2e5a3.
+    *we are shipping aosp dialer in vanilla
+
+commit 050b43f2b5f53ee3daffc1bd6918190878535db3
+Author: Victor <merser2005@gmail.com>
+Date:   Sun Feb 14 14:12:38 2021 +0000
+
+    kunlun2: Add parts back
+    
+    This reverts commit 98dce4d4d50edd090869e5f9bd4e29e409f9a525.
+    We are not PE so let users enjoy Ambient Display and AOD
+
+commit 8e6cb796aab532bc15d4891d0a3fc550f91ee91c
+Author: raysenlau <raysen@live.cn>
+Date:   Sun Feb 14 14:11:15 2021 +0000
+
+    kunlun2: use CameraGo as default prebuilt
+
+commit f0158cfdcb5095de90745c4ead8c2c30f8e65ad3
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Fri Dec 25 20:38:56 2020 +0000
+
+    kunlun2: Use pixel fp to bypass safetynet
+
+commit e995e272b74217545a35b103fead621afe0e7527
+Author: Victor <merser2005@gmail.com>
+Date:   Sun Feb 14 13:38:11 2021 +0000
+
+    kunlun2: Corvus bring-up
+
+commit 6f522e98863b21d68653ff3ecd0076649e6cbd0e
+Author: xyyx <xyyx@mail.ru>
+Date:   Sun Feb 14 13:01:09 2021 +0100
+
+    kunlun2: Address FM Radio denials
+
+commit a7e2433f8e3d75a8cc79f9e612e7a71b4129c310
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Wed Feb 10 21:40:52 2021 +0100
+
+    Revert "sdm710-common: Blacklist google hotword service"
+    
+    This reverts commit 3466e642b6018b065d026c92fe1b4e303b7afc85.
+
+commit 2ebcee5a5e1b4816ee0cdf7a3ba9a35ab070d118
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Wed Feb 10 11:28:47 2021 +0100
+
+    Partially revert "kunlun2: light: minor cleanup"
+    
+    This reverts commit 1d06f837c149b2b1c385dd4ecdcabff455078ae6.
+
+commit 0b5d4137fa709fc510e7220af5b65337908eeec2
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Sat Jan 23 21:09:51 2021 +0100
+
+    kunlun2: We are still shipping CarrierSettings
+
+commit 28f5e83463206a9fb2182a649d0133f104245f0f
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Sat Jan 23 21:07:23 2021 +0100
+
+    Revert "RMX1851: Kang CarrierConfig overlay from oneplus_sdm845-common"
+    
+    This reverts commit 3eac25c37e2dd3442c2b9033935d4c4310357613.
+
+commit 25f2ae155371abae230108e58959e922d948cd71
+Author: mikeNG <mkbestas@lineageos.org>
+Date:   Sat Jan 23 15:29:17 2021 +0100
+
+    kunlun2: Switch to standalone extract utils
+
+commit 0e922201878ac41e23fdc6c9f1a6f76676d911a2
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Sat Jan 23 12:23:38 2021 +0100
+
+    kunlun2: Enable ADB on eng builds
+
+commit da0889b45afa64f262850a7c7d7d87b1b20aa69f
+Author: TTTT555 <albukerko@gmail.com>
+Date:   Mon Nov 23 02:16:14 2020 +0600
+
+    kunlun2: Add camera aux package list
+    
+    - Required for third party apps to use their built in camera e.g Telegram
+    
+    Signed-off-by: Zinadin Zidan <zidan44@pixelexperience.org>
+    Change-Id: I22ab565d7d75e278faf4600cd5aecec59164bf8f
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 60633c12151690a275e2dcf417cd9dd92620e960
+Author: Giammarco Senatore <giammasena@gmail.com>
+Date:   Thu Jan 21 18:31:18 2021 +0100
+
+    kunlun2: Update and cleanup init qcom rc
+    
+     * we don't have some paths
+     * we have emmc
+
+commit abdf28791ada7f484d4738b6045dff007ed0112b
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Jan 2 20:19:51 2021 +0100
+
+    kunlun2: sepolicy: cleanup and update
+
+commit 1d06f837c149b2b1c385dd4ecdcabff455078ae6
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Jan 2 18:40:14 2021 +0100
+
+    kunlun2: light: minor cleanup
+
+commit b3e0af8270af8b493dbd0d8534da628123f767cd
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Jan 1 22:35:12 2021 +0100
+
+    kunlun2: Cleanup
+    
+    - Remove unused build broken configs
+    - Remove RevengeOS early hack to bypass long baseband name
+    - Remove blur expensive prop, new power aidl doesn't support
+    - Live wallpapers are built by default
+
+commit 4db1147a6454bb3c7e8b8f98932bb048696912d0
+Author: Volodymyr Zhdanov <wight554@gmail.com>
+Date:   Thu Oct 1 23:16:43 2020 +0300
+
+    kunlun2: power-libperfmgr: move dt2w mode on top of setMode switch
+    
+    * fixed dt2w after reboot
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 7fd6e62ecd78aa8243406d22a0770f409818c6c1
+Author: Volodymyr Zhdanov <wight554@gmail.com>
+Date:   Thu Oct 1 02:24:54 2020 +0300
+
+    kunlun2: power-libperfmgr: enable DOUBLE_TAP_TO_WAKE mode explicitly
+    
+    * libperfmgr expects mode to be declared in powerhint but dt2w is handled in powerhal
+    * so let's just force enable it like google did with LOW_POWER
+    * also use break instead of fallthrough because there's no need to play with hints
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d4a7573cd16c47f37a27b7e09981ffe1c762be07
+Author: DennySPB <dennyspb@gmail.com>
+Date:   Fri Jan 1 23:36:23 2021 +0530
+
+    kunlun2: Resolve power HAL denials on R
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0b9dcc21d64b02532a99417386b1fa038400a92d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jan 1 20:31:40 2021 +0530
+
+    kunlun2: power-libperfmgr: Enable dt2w
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 98dce4d4d50edd090869e5f9bd4e29e409f9a525
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Jan 1 17:53:10 2021 +0100
+
+    kunlun2: Nuke LenovoParts
+
+commit 0d01eb2df5676d03a87d4b3d1a8a3a4ce10023ff
+Author: Kyle Lin <kylelin@google.com>
+Date:   Wed Aug 12 16:00:15 2020 +0800
+
+    kunlun2: libperfmgr.rc: let power hal start early
+    
+    Bug: 162791243
+    Bug: 72471476
+    Test: build and using emul temp/running burn8 to verify it
+    Change-Id: I5ca475be8b73b940e4858634595a7918ae92f6ef
+    (cherry picked from commit 35e110fe669a7d2996ce503d7e31204554f972e3)
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 4416341c21d14c5c4abaa2f48af4739fc745d8a4
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jan 1 17:26:33 2021 +0100
+
+    kunlun2: Hack to override empty power hidl
+
+commit 5ec60c1e749dcbc1c54d36bee14c0f7093f54349
+Author: Robb Glasser <rglasser@google.com>
+Date:   Mon Dec 4 17:28:08 2017 -0800
+
+    kunlun2: Enable idle_state mechanism
+    
+    Allows us to check the idle state of the display in order to use perf
+    hints to improve system performance.
+    
+    Bug: 69270928
+    Bug: 69915886
+    
+    Test: Booted and cat-ed the affected files
+    Change-Id: I8717093e9b8ed9ed35b6ca51a20225abbf71f775
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 37bb69e906e83fefa72b6972d24aec748620daf6
+Author: Andres Oportus <andresoportus@google.com>
+Date:   Fri Mar 24 11:21:47 2017 -0700
+
+    kunlun2: Add SchedTune configuration
+    
+    Bug: 36367381
+    Test: Boot and check stune configuration effect on sysfs
+    
+    Change-Id: I838c31d164684a5d88550c92284b65bb50f2ed56
+    Signed-off-by: Andres Oportus <andresoportus@google.com>
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit bae3d485a5ceef1ae2370f7f2655b0ac71d757e8
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Mon Jun 29 12:32:17 2020 +0800
+
+    kunlun2: power-libperfmgr: Initialize powerHAL when boot is completed
+    
+    Change-Id: I801b3aba05ef0be14c7af1969ddf9318c05ef64c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a485a2c7c8d446b20eb33f49f636238612d72a9d
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Sat Jun 13 12:06:26 2020 +0800
+
+    kunlun2: power-libperfmgr: Remove Google-specific display LPM control
+    
+    Change-Id: If58f38b99bf6fbd73f6b6ab2144293c63e18b600
+    Signed-off-by: Jesse Chan <jc@lineageos.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 89e43efead2942f70bf028309527156387bd23c1
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Sat Jun 13 11:52:12 2020 +0800
+
+    kunlun2: power-libperfmgr: simply wait if idle state node is not present
+    
+    Change-Id: I93dd97e5437761d2d969f93a5af0cae864fd0a65
+    Signed-off-by: Jesse Chan <jc@lineageos.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 30666f39132a30539d9d3430a19f98d1a47b01c8
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jan 1 15:37:27 2021 +0100
+
+    kunlun2: Import Pixel power AIDL HAL
+    
+    Nuke Powerstats
+
+commit 581940f77762ddc8c990e9b61327afbdc6c08717
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Jan 1 13:56:24 2021 +0100
+
+    kunlun2: Enable 4G by default
+
+commit f5f839f3b3eb8e061d835c1125b2dfdc43213573
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Jan 1 13:34:13 2021 +0100
+
+    kunlun2: Nuke manifest.xml
+    
+     Was not needed at all
+
+commit 2f07f5abc09763b3636646e67d7d55793a5b329c
+Author: GiaSen <giammasena@gmail.com>
+Date:   Mon Dec 7 14:17:43 2020 +0100
+
+    kunlun2: Go enforcing
+    
+    Bind mount etc files because vendor_overlay/29/etc makes device to reboot to recovery
+    
+    from pstore
+    vdc: Command: cryptfs enablefilecrypto Failed: Status(-8, EX_SERVICE_SPECIFIC): '0: '
+
+commit b86cae0ebadd0f5f3a578aee73441785e4c30027
+Author: Kuber Sharma <kubersharma001@gmail.com>
+Date:   Mon Dec 7 11:42:57 2020 +0530
+
+    kunlun2: Copy updated handheld_core_hardware.xml to enable software controls feature
+    
+    * AOSP has included device software controls feature permission
+    inside handheld_core_hardware.xml from android-11.0 but since
+    we use prebuilt OEM vendor which is from android-10.0 it
+    does not have this feature permission included in that.
+    
+    https://android.googlesource.com/platform/frameworks/native/+/a9708b1763d7d97693d08a7b534acf120b57f7f8%5E%21/#F1
+    
+    Signed-off-by: Ayush Dubey <ayushdubey70@gmail.com>
+    Signed-off-by: aashil123 <singhalaashil@gmail.com>
+    Signed-off-by: victor10520 <merser2005@gmail.com>
+
+commit ac6129893fa8b9aba51f1d642471b987691b35c6
+Author: dragonGR <alex@dragongr.dev>
+Date:   Wed Nov 25 14:33:36 2020 +0200
+
+    kunlun2: doze: Inject doze through ia
+    
+    This reverts commit 01d28d0abd9559dab1d735ba66a6844d8e5884c3.
+    
+    Signed-off-by: Ayush Dubey <ayushdubey70@gmail.com>
+
+commit 3b00c1e366068b4adae4c4372f4df4518007e210
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Dec 31 19:02:02 2020 +0100
+
+    kunlun2: Don't build Snap
+
+commit 55797d35258cdf57975727ffbbcf90ce8062a9ce
+Author: Sujin Panicker <spanic@codeaurora.org>
+Date:   Mon Jul 8 10:51:02 2019 +0530
+
+    kunlun2: configs: Add voip_tx profile to policy conf
+    
+    Skype+camcorder concurrency usecase makes Skype
+    to mute since both uses same record_24 profle, due to
+    which second audio record request de-prioritizes first
+    setting isTopOrLatestActive(=true)
+    
+    Add voip_tx profile making skype to use fasttrack rather
+    than using record_24 profile
+    
+    Change-Id: I4a6cee00787f8f587b088d4586e8d13d824144c3
+
+commit 241e67c81c9b6bf8d096bbd1d4a86324cb0ec5c7
+Author: Jasmine Cha <chajasmine@google.com>
+Date:   Sat Mar 28 12:39:12 2020 +0100
+
+    kunlun2: audio: Add hotword input for hotword mic concurrency
+    
+    Bug: 126595113
+    Bug: 129733664
+    Bug: 133123985
+    Bug: 130316160
+    
+    Test:
+     (ST: sound trigger, VO: VoIP, PH: phone call,
+      NR: media recording, PL: playback music)
+     ST->VO (MO/MT),  ST->PH (MO/MT)
+     ST->NR->PH (MO/MT), ST->NR->VO (MO/MT)
+     ST->PL->PH (MO/MT), ST->PL->VO (MO/MT)
+     ST->NR->PL->PH (MO/MT),  ST->NR->PL->VO (MO/MT)
+    
+    Change-Id: I11513994c7a34364de38e00fc8ff999efe3dbb6c
+    Signed-off-by: Jasmine Cha <chajasmine@google.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a6c5f9d7d57442c660b9f07157d6465a331280dd
+Author: GiaSen <giammasena@gmail.com>
+Date:   Mon Dec 7 12:20:24 2020 +0100
+
+    kunlun2: Reduce density
+
+commit f31e94c048e210ad29a5716fcb5cc34e28ce2b46
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Dec 5 13:18:18 2020 +0100
+
+    kunlun2: Nuke qti telephony injection
+
+commit 3eac25c37e2dd3442c2b9033935d4c4310357613
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Nov 29 07:43:41 2020 +0530
+
+    RMX1851: Kang CarrierConfig overlay from oneplus_sdm845-common
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fb115aa9272d8ab84484afa34ea6af40e09673f0
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Nov 29 19:11:12 2020 +0100
+
+    kunlun2: Kang audio policy configuration from DRG
+
+commit 347bedf5e6584fb829271c873fd1a945824b8936
+Author: Ethan Chen <intervigil@gmail.com>
+Date:   Mon Oct 7 16:43:32 2019 -0400
+
+    sdm710-common: Add AOSP RCS packages
+    
+    Change-Id: Ic16d3b92820d246db73ad70ccaa0f4bc7f50e515
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 73f29a6e11b88e3c5ff75b36d0536f8d13ae9f36
+Author: Lucas Dupin <dupin@google.com>
+Date:   Sat Mar 14 15:01:44 2020 -0700
+
+    kunlun2: Enable blurs, under dev-option
+    
+    Test: make
+    Test: manual
+    Bug: 149792636
+    Change-Id: I607ce7de50545b87c3b4d98bb149355c84631e53
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3be848dca8f4567678f923c76dd9a043a6bd319a
+Author: Redick Lin <redicklin@google.com>
+Date:   Sat Sep 19 18:02:36 2020 +0530
+
+    RMX1851: Use phase offsets as duration
+    
+    In Android R, the SurfaceFlinger calculate phase offsets
+    based on duration. Adopt the new way of specifying
+    phase offsets to SurfaceFlinger.
+    
+    Bug: 158464992
+    Test: scrolling, app launching/closing, playing video
+    Change-Id: Ia717f5c0075b6adaedaf20dd6be689737edc1415
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 7777658b00b639f7ea9a6ab6c34e7464525d2dc1
+Author: David Sehr <sehr@google.com>
+Date:   Fri Oct 23 20:50:00 2020 +0530
+
+    RMX1851: Use dex2oat64
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3b63e90589211dd17467053a5de32bbbe7a0db47
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Oct 23 20:46:10 2020 +0530
+
+    RMX1851: Optimize ART
+    
+     * Ref: https://source.android.com/devices/tech/dalvik/configure#dex2oat_options
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit bf9b5b775f2768ddbf796ff459d2b76c7ff70fce
+Author: aleasto <ales.astone@gmail.com>
+Date:   Sat Nov 28 21:56:29 2020 +0100
+
+    kunlun2: Disable SF backpressure
+    
+    Change-Id: I4d5e9ec52901a8b7da9c0c439417a4ac90c512b3
+
+commit 06198e087e6d91e9e3b426a3214734e9de90338c
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Nov 28 21:55:13 2020 +0100
+
+    kunlun2: Add 11 dependencies
+
+commit 13fc98c8d211c4665da82a04eaca9e680427c842
+Author: Roshan Pius <rpius@google.com>
+Date:   Fri Jul 27 09:53:51 2018 -0700
+
+    RMX1851: overlay: Change wifi tether regex
+    
+    The wifi interface names for wifi can either be wlan0 or wlan1.
+    Change the "config_tether_wifi_regexs" appropriately.
+    
+    Bug: 80375412
+    Test: Ensured we display "Hotspot on" in settings when softap is started
+    on either wlan0 or wlan1.
+    
+    Change-Id: I0c456412f9b71ef2ee784f3bfa58b01b9287ca73
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 689fabb481e8bc3a2bc3a7247211ebbdcd4d9ba2
+Author: Kyle Harrison <khwebmail@gmail.com>
+Date:   Thu Oct 22 12:52:49 2020 +0100
+
+    RMX1851: overlay: Move tethering overlays
+    
+    Config overlay values moved from frameworks_base core to
+    frameworks_base packages/Tethering
+    
+    https://github.com/LineageOS/android_frameworks_base/blob/lineage-18.0/packages/Tethering/res/values/config.xml
+    
+    Change-Id: Ia5a8056d6334cd78e79853c0ada4e8873a9669e0
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e3eca1b8ceed356026ba6448cd42532ca473e8fe
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Nov 28 21:47:35 2020 +0100
+
+    kunlun2: Don't dexpreopt apps
+
+commit a568f64847b0ecc439834e816cc5753f3d3acc06
+Author: jesec <jc@linux.com>
+Date:   Sat Nov 28 21:45:41 2020 +0100
+
+    kunlun2: Bind mount /vendor/overlay to empty folder
+    
+     * Instead of removing it directly from vendor
+
+commit 0584a27c21908510991706fff082eef2becc1deb
+Author: Aayush Gupta <aayushgupta219@gmail.com>
+Date:   Fri Oct 16 08:44:12 2020 +0000
+
+    sdm710-common: Remove qcom.fmradio from PRODUCT_BOOT_JARS
+    
+    - It's loaded as app library, hence not needed to be a boot jar
+    
+    Signed-off-by: Aayush Gupta <aayushgupta219@gmail.com>
+    Change-Id: I1b1357be08b511f5af7663dee256849e2f2b1b63
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit cc7f5fae2e4bf819c7ffbd397c294a278557498a
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Nov 28 21:42:33 2020 +0100
+
+    Revert "kunlun2: nuke fm radio [WIP]"
+    
+    This reverts commit 3dd2159bf0274e3f4cb2ed28d5f861cab9323794.
+
+commit d305f8ec6d8480ef2c8f9e79d48d2f5e016cd62e
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Nov 15 13:13:28 2020 +0530
+
+    Revert "sdm710-common: Enable AOD"
+    
+    This reverts commit 40b06eb286a5fecdb89f5c7091ee3cce2b89aaa4.
+
+commit 7380a1a50910aed5d5e066af2df1f56742fb30f8
+Author: Redick Lin <redicklin@google.com>
+Date:   Mon Apr 20 18:28:53 2020 +0800
+
+    sdm710-common: Enable ro.charger.enable_suspend
+    
+    Define ro.charger.enable_suspend to true as charger no
+    longer uses BOARD_CHARGER_ENABLE_SUSPEND.
+    
+    Bug: 153937817
+    Change-Id: Ic76bf3a66c5e21c74e49607f54d6c0358c31bbac
+    Signed-off-by: Redick Lin <redicklin@google.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ab06d56014dc2081a3d951c3f741931339d56ccb
+Author: Jimmy Chen <jimmycmchen@google.com>
+Date:   Fri Oct 18 16:31:32 2019 +0800
+
+    sdm710-common: overlay: Add p2p regex for tethering modes
+    
+    Bug: 137602441
+    Test: CtsVerifier - Wi-Fi Direct
+    Change-Id: I6d6d29bd1742e4f34d09a208fefdddc9913e38a2
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9ca1bfac712e3b3e91f2e8c0ce4c963ff36ffba5
+Author: Pooja Singh <spooja@codeaurora.org>
+Date:   Fri Jul 6 15:32:04 2018 +0530
+
+    sdm710-common: Enable chain partition for recovery
+    
+    Change-Id: I81266c7ce170f9a108a0ce4d01980b5bf8faffd0
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6c164893531332108435a013606dd80488496923
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Nov 28 21:36:22 2020 +0100
+
+    Revert "kunlun2: use recovery avb key"
+    
+    This reverts commit 7d200328d37fa65c89e1b7226c7bc07a310ce6c5.
+
+commit 936551ec37c8177cb9f1299a54ae4a96d3f3fad0
+Author: GiaSen <giammasena@gmail.com>
+Date:   Tue Nov 24 16:19:02 2020 +0100
+
+    kunlun2: Pixel Experience 11
+    
+     Nuked safailnet and pixel prop
+     Nuked CarrierSettings
+
+commit 021d6e59ee006a0a2d2d3a1ed0e8a08173c375f3
+Author: GiaSen <giammasena@gmail.com>
+Date:   Tue Nov 17 13:34:37 2020 +0100
+
+    kunlun2: Build libhwbinder
+
+commit 2981e944d76010436ccee51afed25980c984cad6
+Author: GiaSen <giammasena@gmail.com>
+Date:   Tue Nov 17 12:34:51 2020 +0100
+
+    kunlun2: Build libhidltransport
+
+commit b1433f3b0d7ef96eef01323fe2c589ccb0d7607f
+Author: SamarV-121 <samarv121@pixelexperience.org>
+Date:   Sun Nov 15 14:43:44 2020 +0100
+
+    kunlun2: Kang audio policy configuration from Realme sdm710
+    
+     *BT configs from Lenovo
+
+commit 77b3f1797abee124f88d7cffc642602c5d4fdd78
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Nov 13 00:10:11 2020 +0100
+
+    kunlun2: Update coral fp to nov
+
+commit 26f0822f479f8a754912fd8f82f389810847dee7
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Nov 13 00:08:28 2020 +0100
+
+    kunlun2: Ship RevengeOS OFFICIAL
+
+commit 6e374c1939996d2cd2982711fd1930e7328adf54
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Nov 12 21:53:10 2020 +0100
+
+    kunlun2: Remove non-working and useless light rc
+    
+    This reverts commit b6b7486d55bcc39ba1b7279dc166e1ba3f6bc164.
+
+commit 920fec6e5d7b01ad5ed102539b5e3ee4b54ec017
+Author: Lucchetto <lucchetto.tie@live.com>
+Date:   Fri Sep 11 21:32:50 2020 +0200
+
+    kunlun2: add wired headset to audio policy
+    
+        * Workaround for missing audio trough headphone jack
+        * Source: https://github.com/phhusson/treble_experimentations/issues/855
+    
+    Signed-off-by: Lucchetto <lucchetto.tie@live.com>
+
+commit 6f69e21cbf7f3407ba307f65fca0dc429e4e50cc
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Nov 12 21:48:35 2020 +0100
+
+    kunlun2: Import and bind mount stock audio policy configuration
+
+commit 62c81ec8a90986a16769bc28629cd2c0be591426
+Author: Roshan Pius <rpius@google.com>
+Date:   Fri Apr 24 14:33:28 2020 -0700
+
+    kunlun2: Add WifiOverlay
+    
+    Bug: 148617260
+    Test: Device boots up and connects to wifi networks.
+    Change-Id: Iec27a6d947a232a42451ef095dc73d1a52327db5
+
+commit 4b637d7acf00b8c7f615b2104dc88221f839f36c
+Author: Kevin Chyn <kchyn@google.com>
+Date:   Thu Nov 12 15:05:02 2020 +0100
+
+    kunlun2: Add fingerprint configuration to overlay
+    
+    The framework was changed in Android R to require explicit authenticator registration.
+    This change allows apps to continue to use the fingerprint sensor.
+    
+    Bug: 147445115
+    
+    Test: Builds
+    Change-Id: Id3385edc784b2053c8b54ec3153728f4e6e22a45
+
+commit 10ff7b1cbeb7d240b0430c55ef9ac80b21f8f935
+Author: Roshan Pius <rpius@google.com>
+Date:   Thu Nov 12 14:12:17 2020 +0100
+
+    kunlun2: overlay: Remove wifi related internal overlays
+    
+    These are replaced by formal mainline module overlays.
+    
+    Bug: 143464763
+    Test: Send for  Wifi regression tests
+    Change-Id: I45881ed210132252b9c5c7d6be03ed845e33f971
+
+commit fcfedf13ff3c402bb1852053095731f316a96211
+Author: Brad Ebinger <breadley@google.com>
+Date:   Mon Jan 20 17:38:22 2020 -0800
+
+    kunlun2: overlay: Add translatable="false" tags to ims package overlays
+    
+    Bug: 147569830
+    Test: atest TeleServiceTests:PhoneGlobalsTest
+    Change-Id: I57d80bbf17fafdc87ba04c6e7f7ab9573482e395
+
+commit 5fca2b44ca743212cd5ccce49258696407359eb9
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu Nov 12 14:08:49 2020 +0100
+
+    kunlun2: overlay: Remove old configuration and use new config for MMTEL/RCS
+    
+    Remove the old config_ims_package device config and configure the
+    new MMTEL and RCS configurations in Telephony instead. Also,
+    configure the RcsService to be the default RCS service.
+    
+    Bug: 111305845
+    Test: make checkbuild
+    Change-Id: I0d709b8248f1c40f0a5b50ec799396706eeadd65
+
+commit 7a5037cb9e74fd0f1f12d17cf5c1e2870b2583d1
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Nov 12 14:06:20 2020 +0100
+
+    Revert "kunlun2: import coral Telephony overlays"
+    
+    This reverts commit 83a4082fe735f11bde5439035f10d52e07fa395e.
+
+commit 17165825d5e7c0b5c085652791af59103781dc05
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu Nov 12 14:03:20 2020 +0100
+
+    kunlun2: overlay: Update in pinned files.
+    
+    Remove or update paths that don't exist.
+    
+    Bug: 119800099
+    Test: boots
+    Change-Id: Ib2cea88499cf08274d620d9d85ffcafc31fee868
+
+commit 5435f6f34fd90796997931d45deab576d14d7fc0
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Sun Nov 8 13:06:26 2020 +0100
+
+    kunlun2: Include QSSI sepolicy
+    
+    * Now that device/qcom/sepolicy is non-vendor only
+      we are able to do that.
+    
+    Change-Id: I4c83a8e30cfa11e45be2f06eb7f444de7f68d219
+
+commit 9eafbb49c365fd46f818ec58ccedf23b690dc299
+Author: deanlancer <deanlancer@gmail.com>
+Date:   Sun Nov 8 12:59:37 2020 +0100
+
+    kunlun2: Update Light HAL
+
+commit 3976e2254beda9ef25105bfe58aecf0057659be0
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Nov 8 11:29:24 2020 +0100
+
+    kunlun2: Nuke USB custom Hal
+
+commit a0f704a285395d8eefac0601441a43022a4305f4
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Fri Oct 9 21:01:28 2020 +0200
+
+    kunlun2: lights: Statically link {libbase, libutils}
+    
+    * Fixes unresolved R symbols.
+    
+    Change-Id: I1bb820eb7e8e1ae914298657c2ffc38999989109
+
+commit 83a4082fe735f11bde5439035f10d52e07fa395e
+Author: Lucchetto <lucchetto.tie@live.com>
+Date:   Fri Sep 11 08:37:34 2020 +0200
+
+    kunlun2: import coral Telephony overlays
+    
+    Signed-off-by: Lucchetto <lucchetto.tie@live.com>
+
+commit 22de946b4b415c39891e9c24b6a3162877ebf6ea
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Sep 20 09:40:15 2020 +0200
+
+    [WIP] kunlun2: don't delete vendor/overlay for now
+
+commit 82fd4369882ea37d90ff909450f4f495ecf4d55e
+Author: DD3Boh <dade.garberi@gmail.com>
+Date:   Mon Nov 2 22:12:26 2020 +0100
+
+    kunlun2: Kang qti-telephony-common from cmi
+
+commit e3790ebbdb5102cc52fc9bff592df381dcf62702
+Author: Lucchetto <lucchetto.tie@live.com>
+Date:   Wed Sep 16 15:47:39 2020 +0200
+
+    kunlun2: enable baseband string hax
+    
+    Signed-off-by: Lucchetto <lucchetto.tie@live.com>
+
+commit 3c559f55468f7b9d7130578cab4066dee6afc6c8
+Author: merser2005 <merser2005@gmail.com>
+Date:   Sat Sep 19 19:27:05 2020 +0200
+
+    kunlun2: add screen density
+
+commit cc3b3a84bd49683c3ac52bca2ffb69d362d44e5a
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Sep 19 19:23:48 2020 +0200
+
+    kunlun2: switch to coral fp to bypass safetynet
+
+commit 3dd2159bf0274e3f4cb2ed28d5f861cab9323794
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 17 18:40:47 2020 +0200
+
+    kunlun2: nuke fm radio [WIP]
+
+commit 0851a6c2f3ad959fcb2ee5ff1965677b95bea7c9
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 17 18:17:27 2020 +0200
+
+    kunlun2: build 29 extra vndk
+
+commit 7d200328d37fa65c89e1b7226c7bc07a310ce6c5
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 17 18:16:55 2020 +0200
+
+    kunlun2: use recovery avb key
+
+commit 3922076346abf84ca0c3d1442cc6a515c24715e5
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 17 18:13:27 2020 +0200
+
+    mido: remove alrady declared wifi hals from manifest
+
+commit 3ecd875d29f043db43969325f0993353f6495479
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 10 01:33:31 2020 +0200
+
+    kunlun2: don't check prebuilt libs ELF
+
+commit c95ab98f48dca87024e0ae5da82b124fad8fc490
+Author: GiaSen <giammasena@gmail.com>
+Date:   Wed Sep 9 15:26:16 2020 +0200
+
+    kunlun2: build using vintf copy
+
+commit 3400095d162408d9fe5e1a273c7d539729cc851a
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu Sep 17 18:11:51 2020 +0200
+
+    kunlun2: Disable custom audio policy
+
+commit c6a6cb7e04910712d40955e141adb65bff44a7c3
+Author: GiaSen <giammasena@gmail.com>
+Date:   Wed Sep 9 14:12:12 2020 +0200
+
+    kunlun2: Build with deprecated copy headers
+
+commit f81b318e9a39c00585ae1b259094d11817ebc02a
+Author: smore-lore <smoreland@google.com>
+Date:   Wed Sep 9 13:34:25 2020 +0200
+
+    Remove libhwbinder/libhidltransport deps
+    
+    Since these were combined into libhidlbase.
+    
+    Bug: 135686713
+    Test: build only (libhwbinder/libhidltransport are empty)
+    Change-Id: Ied304d76cba152dc91d4fab09179b74a532072b3
+
+commit 243fbf3ea878fdb321f01353039413a289795409
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Sep 12 17:10:15 2020 +0200
+
+    kunlun2: revengeos bringup
+
+commit cce79e583cbe26b998f8aedf2dae1a24f8c694b5
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat May 30 11:50:42 2020 +0200
+
+    kunlun2: add google priv-app permissions
+
+commit 27dc44fe144692d3f1cadcc1f098c64f995e85ac
+Author: GiaSen <giammasena@gmail.com>
+Date:   Fri Aug 7 20:31:37 2020 +0200
+
+    kunlun2: update flame build fp from august release
+
+commit 6019905c0cb002e5520ab62b8c96aaa2b9c2e5a3
+Author: SamarV-121 <samarv121@pixelexperience.org>
+Date:   Thu Jul 30 14:02:36 2020 +0530
+
+    sdm710-common: Nuke redundant Dialer callrecord overlay
+    
+     * We are using prebuilt GoogleDialer
+    
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit 59e19ff317ad7c92e0e02db880e1652af4e48e90
+Author: ѕαмαя νιѕρυтє <samarv121@pixelexperience.org>
+Date:   Fri Jul 24 16:15:57 2020 +0530
+
+    sdm710-common: Undeclare perf HAL from device manifest
+    
+     * To silence spam in log
+     * Its already disabled https://github.com/PixelExperience-Devices/device_realme_sdm710-common/blob/478ea785d4fa8a882d23b5954d006ddee8e43da4/rootdir/etc/init.qcom.rc#L107
+
+commit 7a2b39244aa17d8a61c91593fe311de969e77aec
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Jul 26 17:39:05 2020 +0200
+
+    kunlun2: update dependencies
+
+commit b6dd129962760e1e0b05ef8eed0b3acc754d8e40
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Jul 26 17:36:03 2020 +0200
+
+    kunlun2: add proper thermal config
+
+commit fc3ae2d729cb7438ab934f36ab553f7f817bd616
+Author: GiaSen <giammasena@gmail.com>
+Date:   Mon Jul 20 18:33:16 2020 +0200
+
+    kunlun2: update flame build fp from july release
+
+commit ff5a97d881cf5a71a38a023452a4764ebbde2645
+Author: ѕαмαя νιѕρυтє <samarv121@pixelexperience.org>
+Date:   Thu Jul 9 23:38:49 2020 +0530
+
+    sdm710-common: Modify interaction boost min freqs
+    
+     * 825mhz for silver cluster and 576mhz for gold cluster
+    
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit 1190b97d4623c17f0f737255ba0d36a8754f087c
+Author: Subbaraman Narayanamurthy <subbaram@codeaurora.org>
+Date:   Wed Jun 24 22:09:52 2020 -0400
+
+    sdm710-common: Add CAP_SYS_BOOT for charger
+    
+    Add CAP_SYS_BOOT capability for charger service so that it can
+    shutdown/reboot the system.
+    
+    Change-Id: I17ccba74d5a3c38bd751c55bcf42fb3689d730a7
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit e0d6fd25334079035bca23bf17c21be46b74244f
+Author: SamarV-121 <samarv121@pixelexperience.org>
+Date:   Mon Jul 20 18:31:44 2020 +0200
+
+    sdm710-common: Import charger service definition
+    
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit 2e7e6450b5073f4651bd33048f5b77e7706a513d
+Author: jesec <jc@linux.com>
+Date:   Mon Jul 20 18:30:04 2020 +0200
+
+    sdm710-common: Enable unspecialized app process pool
+    
+    Change-Id: I6dfcb59dace5eaa7551caeae86db3b485c0cfbf1
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit 6a159a6617470e22c303ab8b7595e1d26634b6ea
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Mon Jun 29 12:26:29 2020 +0800
+
+    sdm710-common: power-libperfmgr: remove Google-specific camera and audio hints
+    
+    Change-Id: I65285ca8c7248bd1e55d3800862e96c00f00effd
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit b3c33c6b0bd2a8d1def58e2ce3ad84bdf8450185
+Author: ѕαмαя νιѕρυтє <samarv121@pixelexperience.org>
+Date:   Tue Jun 23 11:48:59 2020 +0530
+
+    sdm710-common: Specify source of pinned blobs
+    
+    * also remove prebuilt libdisplayconfig and qdmetadata
+
+commit 060f816e3fa8c1195339ff972707e6d148602187
+Author: Jake Weinstein <jake@aospa.co>
+Date:   Mon Jun 15 02:30:02 2020 +0200
+
+    sdm710-common: Remove TARGET_ENABLE_MEDIADRM_64
+    
+    This is only used on vendor modules.
+    
+    Change-Id: Ia6ed29fb7a8e938a27c55f214b56c308249f6e26
+    Signed-off-by: SamarV-121 <samarv121@pixelexperience.org>
+
+commit 95f0e15db89257756b6e777b2e3a761345d801e5
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jun 19 18:59:58 2020 +0530
+
+    sdm710-common: Build LiveDisplay HAL only on Plus varient
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9c08f2920c359c5ababf5c368c0ad5bc68c1ab16
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jun 22 13:13:26 2020 +0200
+
+    sdm710-common: Use TARGET_COPY_OUT_SYSTEM
+
+commit d3a18eaa9090b16022eab62eb7a6207c1fb2a842
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Fri Jun 19 09:48:12 2020 +0530
+
+    sdm710-common: Import vendor.display.color@1.0.so
+
+commit 9f4e1f580783811663c50472ce1c3de15493b4c4
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Tue Feb 20 22:47:08 2018 +0800
+
+    sdm710-common: Build LiveDisplay HAL
+    
+    Change-Id: I4bfac85c64599ced45983a86d98cfd810a97db99
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 034622f583a9945a3a7d1ddb57ee3987a7d906be
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sat Jun 13 16:09:43 2020 +0530
+
+    sdm710-common: Build libdisplayconfig and libqdMetaData
+
+commit dd10d0099b77b402f02d4bb96060172f3fd73a1b
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Sat Jun 13 12:06:26 2020 +0800
+
+    sdm710-common: power-libperfmgr: remove Google-specific display LPM control
+    
+    Co-authored-by: SamarV-121 <samarvispute121@gmail.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f58f875741f992e5549787a724cd76a5eff822b9
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu May 14 14:29:04 2020 +0200
+
+    sdm710-common: Import libplatformconfig dummy module
+    
+    * This let us build with deps checks in place
+    
+    Change-Id: I9da3f7310618c97a60f6e946b2ee2012ba3c9311
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ab078a20f26208c4e4c413dc590cccdfbae1bcbf
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Jun 7 20:23:56 2020 +0530
+
+    sdm710-common: Set BOARD_USES_QCOM_HARDWARE
+    
+     * also define board platform
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1e7deeace10f4254dd03cd8b4653845e2a856a21
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Jun 7 20:21:36 2020 +0530
+
+    Revert "sdm710-common: Define FORCE_QCOM_DISPLAY_HAL_VARIANT"
+    
+    This reverts commit f88111e8916246908788ebef186dbb8ccaaf2a6c.
+
+commit 101e762498199cf03702a4f948726a8fd0c96509
+Author: GiaSen <giammasena@gmail.com>
+Date:   Mon Jun 8 15:04:35 2020 +0200
+
+    kunlun2: update pe targets
+
+commit 5e4da20480b43c68647ff81566043b327090fb46
+Author: GiaSen <giammasena@gmail.com>
+Date:   Mon Jun 8 15:03:52 2020 +0200
+
+    kunlun2: Update flame build fp to June release
+
+commit 0b0d32cb5246bc1bb4baca9b592284f992bf4934
+Author: DennySPB <dennyspb@gmail.com>
+Date:   Mon Dec 30 16:58:49 2019 +0300
+
+    sdm710-common: Decrease launch boost to 3sec
+    
+    * 5s is just too much long plus battery drainer
+    
+    Signed-off-by: DennySPB <dennyspb@gmail.com>
+    Change-Id: I7e037c45cd2296a8bbd67d6bd63c212c0ef2a805
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5d670a8d375e25f22930b23615e869b8abdf40dc
+Author: Henrique Pereira <hlcpereira@pixelexperience.org>
+Date:   Sun May 24 18:15:25 2020 -0300
+
+    sdm710-common: Set schedtune boost to 5
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5cb0eff24fc95313796b1becc11ed24d2319635d
+Author: DennySPB <dennyspb@gmail.com>
+Date:   Thu May 7 18:38:19 2020 +0300
+
+    sdm710-common: Remove wlan powerstats
+    
+     * It's under debug guard and we don't want to debug anything here
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c7d03a2577819df8b91a073c679230f1a11a22f8
+Author: millerliang <millerliang@google.com>
+Date:   Mon Dec 17 15:47:24 2018 +0800
+
+    sdm710-common: Refined early SF phase offsets
+    
+    Sometimes SW_VSNC of DispSync comes 1ms earlier than signal_retire_fence(or HW_VSYNC)
+    It means VSYNC-sf only 5ms behind signal_retire_fence.
+    And VSYNC-sf will be 5.5ms earlier when applying early_sf_phase.
+    (the phase-sf changes from 6ms to 0.5ms)
+    
+    Therefore, VSYNC-sf comes 0.5ms earlier than signal_retire_fence when
+    applying early_sf_phase for transaction and cause frame missed.
+    
+    Add more 1ms to early_sf_phase then it will come 0.5 later than signal_retire_fence
+    in this case.
+    
+    Bug: 118606025
+    Test: Open/close apps, observe no jank
+    Test: -Launch app, stay the same picture on screen at least 30s
+          -Tap home key, observe no jank when doing app animation
+    Change-Id: Iec83aef719b830aed612b47bbda910508406d196
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit bb0e57be4a7dd7c395770a798dd1996b5cbe59ee
+Author: Midas Chien <midaschieh@google.com>
+Date:   Thu Sep 6 02:43:30 2018 +0800
+
+    sdm710-common: Enable early SF configurations
+    
+    Sync early SF configurations from Bluecross
+    
+    Bug: 112620861
+    Test: Launch Chrome animation test, frame drop rate 0.9%->0.24%
+    Change-Id: Iac9b848ed86768ee99d4bbbb3b624d607b414005
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ac3a42d8e3b4d01d85b40c249ca95abeaa940cda
+Author: Sundong Ahn <sundongahn@google.com>
+Date:   Mon Dec 17 16:40:39 2018 +0900
+
+    sdm710-common: Add system properties for surfaceflinger
+    
+    The configstore will be not used in surfaceflinger. So surfaceflinger
+    will use the system properties instead of configstore.
+    For this, the system properties are added.
+    
+    Bug: 112386364
+    Test: m -j && boot test
+    Change-Id: Ie3d2adccca06702217984cf2c9db986d852b7014
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b30dbe6d631b5321146e0d72a8ffc14d08add5cc
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu May 28 20:15:04 2020 +0200
+
+    kunlun2: move props
+
+commit 46ff39be2a3771860d04c01eadc14f9c40febe96
+Author: Steve Kondik <steve@cyngn.com>
+Date:   Wed Oct 26 15:59:54 2016 -0700
+
+    sdm710-common: Set vsync phase offsets
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit cdd5913f4d1deb289db941b3825c8a847fc38f76
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 24 20:41:20 2020 +0530
+
+    sdm710-common: Set NUM_FRAMEBUFFER_SURFACE_BUFFERS
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f02944f32929a859eda9b9f308677f1e5a5b420c
+Author: Dan Willemsen <dwillemsen@google.com>
+Date:   Tue Jun 19 22:28:20 2018 -0700
+
+    mido: build have overriding commands
+    
+    These products have warnings about overriding build commands, which
+    means that there are multiple instructions on how to build a file, and
+    we've just picked one of them. Which one we pick is usually stable, but
+    it can change.
+    
+    Bug: 77611511
+    Test: turn default to false, walleye still uses a warning
+    Change-Id: I11d194863b313f64b19291f65219682b169d9ced
+
+commit 4c34733e0f7b6b20e0b7e27d02babde0905bd93c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 24 13:54:48 2020 +0200
+
+    sdm710-common: wifi: Remove nonexistent configs
+
+commit 2bfee9cd7e2c721c911b3aea0f590d7ef84f8d63
+Author: Dede Dindin Qudsy <xtrymind@gmail.com>
+Date:   Tue Jan 21 09:44:14 2020 +0700
+
+    sdm710-common: wifi: Disable SAE support
+    
+     * based on kerneltoast/android_kernel_google_wahoo@4219bf1
+    
+    Signed-off-by: Dede Dindin Qudsy <xtrymind@gmail.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 86705bd15659170d646f796e4c5c20e3138db30a
+Author: Ashish Kumar Dhanotiya <adhanoti@codeaurora.org>
+Date:   Tue Oct 1 19:55:07 2019 +0530
+
+    sdm710-common: Add ini ignore_fw_reg_offload_ind
+    
+    Add ini "ignore_fw_reg_offload_ind" to ignore regulatory
+    offload indicatin from fw.
+    
+    Change-Id: Ie45bc35455efb4b3fd3512bafe140d4ae9580c4b
+    CRs-Fixed: 2542055
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c5ea77de758f2d7850bbfb283a54937ca89175a6
+Author: Ashish Kumar Dhanotiya <adhanoti@codeaurora.org>
+Date:   Mon Feb 3 20:31:51 2020 +0530
+
+    sdm710-common: wifi: Remove TxPower2g and 5g from config file
+    
+    Ini config values TxPower2g and TxPower5g are not
+    getting used anymore.
+    Remove TxPower2g and TxPower5g from WCNSS_qcom_cfg.ini
+    for all the targets.
+    
+    Change-Id: Id85bec3e4ae3bb8012e13844bb0afa682a593fee
+    CRs-Fixed: 2607679
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6243e72c42b695e41d7a597cd5e40662cc1c89d0
+Author: Arun Kumar Khandavalli <akhandav@codeaurora.org>
+Date:   Thu May 30 18:05:38 2019 +0530
+
+    sdm710-common: wlan: Enable LPRX by default
+    
+    LPRX was disabled previously on request because of some power issues.
+    Now that all the power issues is resolved enable the LPRX by default.
+    
+    Change-Id: Ie3655bacfd06d47598b04e8c2c89233a000307ce
+    CRs-Fixed: 2459952
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6357d10828462f364a96161b0fd3d905823ae67f
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun May 24 13:44:49 2020 +0200
+
+    kunlun2: copy wcnss config from stock
+    
+    This reverts commit 9b215d2e09880ef1a0251eab55036839023924e5.
+
+commit c172f278f63c75df780d2bff95e80186e6ef8fff
+Author: Anjaneya Prasad Musunuri <aprasad@codeaurora.org>
+Date:   Wed May 8 20:36:53 2019 +0530
+
+    kunlun2: Enable latch unsignaled buffers
+    
+    Change-Id: I2b743100a49d1328177230c1952580b62543b245
+    CRs-Fixed: 2449258
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b09479f6bd50a4b95b6de2432126909de9898700
+Author: luk1337 <priv.luk@gmail.com>
+Date:   Tue Jul 10 22:00:24 2018 +0200
+
+    kunlun2: Remove unsupported media profiles
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2fede046fa20c4ce90d69d0bae923597b276bb8c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 24 16:45:16 2020 +0530
+
+    kunlun2: Import stock media_profiles_vendor.xml
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 14ed25805df4b95261b606b95e6fd2b9c881e19b
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 24 16:34:09 2020 +0530
+
+    kunlun2: Add 0x2000U to additional gralloc usage bits
+    
+     * E Gralloc2: buffer descriptor contains invalid usage bits 0x2000
+     * Fixes broken video playback
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 76b55205d19e8d7eaabc6185bff3b8dee104b088
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sun May 24 11:19:07 2020 +0530
+
+    kunlun2: Add additional gralloc usage bits
+    
+     * E Gralloc2: buffer descriptor contains invalid usage bits 0x200000
+     * Fixes WFD
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c48474fa1f997318cf2ca948649ad0202c61855c
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sun May 24 11:23:11 2020 +0530
+
+    kunlun2: Import all vendor.display.config blobs
+    
+     * Needed by WFD
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e4946a7f2fad159d14318e40b90a49a62b902599
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat May 16 11:37:13 2020 +0530
+
+    kunlun2: Import powerstats from bonito
+    
+     * Convert to lenovo targets
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fcd478120df31557421285ba84966235bc4e8577
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri May 22 12:36:07 2020 +0530
+
+    kunlun2: power-libperfmgr: Convert to lenovo targets
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0e07fa1138085400845d8fca9bf59c07fa5a15cc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed May 13 17:15:54 2020 +0530
+
+    kunlun2: Compile libperfmgr in system
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 83aa3e22a967dfa364655a37d12c875b0ad50b8a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri May 15 14:45:17 2020 +0530
+
+    kunlun2: Import powerhint from bonito
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a64a64897d4683a87cefe47c05e25494185eb733
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon May 18 11:12:10 2020 +0530
+
+    kunlun2: Import power init scripts from bonito
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2d90abaa7cc7a69ffbbe0887b04316b9c2ff1687
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed May 13 17:04:54 2020 +0530
+
+    sdm710-common: Disable IOP and PERF HAL
+    
+     * also revert 56f6504f61e1c7e6bb0e74278d215da0469cf4a3, eb7a690439298070393a5fe8c291014e6615eaec, d5cb5501690c3d949a342ac203ba5544a5768106
+     * in the favour of power-libperfmgr
+     * also nuke all sepolicies for now
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fdda56ab6d8b7e6f0156ef544f09ff12a8c47ca5
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu May 14 19:47:52 2020 +0530
+
+    kunlun2: power-libperfmgr: Move to framework manifest
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3cb57f00ca419b860ead6185c66fa868a5faa21a
+Author: Steve Kondik <steve@cyngn.com>
+Date:   Mon Oct 19 14:43:39 2015 -0700
+
+    kunlun2: power-libperfmgr: Add support for tap-to-wake feature control
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5c6a44f76245ce99dcdcb04493f08569c0969300
+Author: Henrique Pereira <hlcpereira@pixelexperience.org>
+Date:   Tue Apr 28 22:52:34 2020 -0300
+
+    kunlun2: Import power-libperfmgr from hardware/google/pixel
+    
+    * Powerhint.json from Crosshatch slightly cleaned-up
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0b4e694e0b4c4194b2ed8b4680cdff362da2d417
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed May 13 17:00:27 2020 +0530
+
+    kunlun2: Nuke QTI power HAL
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2ce4fe9e1e2840d28435711a391fad1a18c84a3e
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Tue May 19 11:50:59 2020 +0530
+
+    kunlun2: Disable unused atfwd daemon
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 61823b35091e7620495c7f38e0c96cab5997e8e1
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 17 08:53:40 2020 +0000
+
+    kunlun2: Update CarrierSettings from coral-user-R-RPP4.200409.015-6455311-release-keys
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e33d6667238e987ee69c3893a1d7cb2b3e3693e3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun May 17 14:07:05 2020 +0530
+
+    Revert "sdm710-common: Remove CarrierSettings from here"
+    
+    This reverts commit b19f2b5cba0c520972866f8d7ca4a402985df26c.
+
+commit 89fcd0cb6b819f4ca8fe0e483968678a6dad5bbf
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sat Apr 25 22:44:22 2020 +0530
+
+    kunlun2: Remove vendor overlays
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5f594c220775ef2931d050e90e5e32d0543f7230
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Fri Apr 24 15:13:08 2020 +0530
+
+    kunlun2: Remove duplicate perms
+    
+     * already in vendor
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 73aeb9348f60faa0ddf618ecc0991af92714ab76
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Wed Apr 22 19:38:37 2020 +0530
+
+    kunlun2: Remove unused 32bit FM blobs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 462e94d4877d0f2252c40f1ba9d544e05f9d748f
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sun Apr 19 12:48:08 2020 +0530
+
+    kunlun2: Undeclare unused HALs in framework manifest
+    
+    This reverts commit f7e8710bff6f53cdd1f51c48c0709574ae8a5c6d
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f386d757e1a0f0d07634aefdb03b9a5a156052f3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Apr 13 17:23:29 2020 +0530
+
+    kunlun2: Force enable IMS and WFC
+    
+    This reverts commit 51c1bd4f3da785403f75f282b74fd4c09ab664d2.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit cd35e39c1ba224b69ab72ef71460116c3b57cd0c
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu May 7 13:48:19 2020 +0200
+
+    kunlun2: Add updatable_apex.mk and generate APEX image
+
+commit bb78a34bd9aeed0f4c40e5f12e8adccc4085558b
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Tue Sep 3 13:52:52 2019 +0000
+
+    kunlun2: Define FORCE_QCOM_DISPLAY_HAL_VARIANT
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c0ab4d672935349184a12618957255c41e1bfdeb
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu May 7 13:45:52 2020 +0200
+
+    kunlun2: Update flame build fp from may
+
+commit b6b7486d55bcc39ba1b7279dc166e1ba3f6bc164
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu May 7 10:13:57 2020 +0200
+
+    temp hax: move light init to init.qcom.rc
+
+commit 9b215d2e09880ef1a0251eab55036839023924e5
+Author: GiaSen <giammasena@gmail.com>
+Date:   Thu May 7 12:53:27 2020 +0200
+
+    kunlun2: nuke wcnss config
+
+commit 5ccaf36749c530396c42480e8906c40422be0374
+Author: GiaSen <giammasena@gmail.com>
+Date:   Tue Apr 28 11:34:38 2020 +0200
+
+    kunlun2: add missing permissions to snapcam
+
+commit d4b68133edb17a902ac312f701d9b6b15effc98e
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Apr 25 19:49:22 2020 +0200
+
+    kunlun2: nuke sepolicy again
+
+commit a2e46decf42c18c044fb1f01900053352a220687
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sat Apr 25 19:28:50 2020 +0200
+
+    kunlun2: update to FBE
+    
+     * new prebuilt official vendor switched to FBE so update prebuilt kernel
+     * no need to remove footer from fstab as it's just for updater-script
+
+commit 0d084503faf9b462936dbffa7381cb1850d03642
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Apr 12 20:53:14 2020 +0200
+
+    kunlun2: Introduce 'SafailNet'
+    
+    This reverts commit 6b8ab2e5035608e855faf833407e972f1ee8bbfb.
+
+commit bd7fc9cbd23dd660adcf0fddef6bb0d35a2b4d18
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Apr 12 19:33:04 2020 +0200
+
+    kunlun2: import urnyx2.3 gcam
+
+commit 8cfbb587e92923433e5bf5ffb6fbacb1e68ea560
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Apr 12 19:13:47 2020 +0200
+
+    kunlun2: add dependencies
+
+commit f813de0d225333582e7f02de346cf2d21475f945
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sun Apr 12 22:38:31 2020 +0530
+
+    kunlun2: overlay: Disable camera2api for Snap
+
+commit 4e9b828cb4e64fbfb9bb887f592f1d8fc866116f
+Author: Erfan Abdi <erfangplus@gmail.com>
+Date:   Wed Aug 21 17:27:46 2019 +0430
+
+    kunlun2: set ro.vendor.fm.use_audio_session
+    
+    Change-Id: Ie1df15211d0c670767e87deefdfe7b134b87f12a
+    Signed-off-by: Erfan Abdi <erfangplus@gmail.com>
+
+commit 18a697a2cf23594db315ebeb716a6db51ad4e35d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Apr 12 15:21:30 2020 +0530
+
+    kunlun2: Import power profile from stock
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a54debc8cef89693fc0119f9afdb1bb8b291cc4c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Apr 12 15:11:29 2020 +0530
+
+    kunlun2: overlay: Import more brightness overlays
+    
+     * also update vibration overlays
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d660d30e22d00c4899be82bbf6b1e3fc226df4e8
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Apr 12 03:10:34 2020 +0530
+
+    kunlun2: sepolicy: Allow power hal to access tap to wake node
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 540f36f22b1fccd844f1df5c592d53ebd1c0345d
+Author: GiaSen <giammasena@gmail.com>
+Date:   Sun Apr 12 02:02:10 2020 +0530
+
+    kunlun2: light: Correct lcd node path
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a9bb0d616f883572a0be498316e23ed6fbe5208b
+Author: Vitaliy Tomin <highwaystar.ru@gmail.com>
+Date:   Sun Apr 12 01:59:02 2020 +0530
+
+    kunlun2: Import light hal from davinci, adopt for rgb
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e3f6e9613a27608be234edcee971b44e71ee009f
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Tue Sep 10 03:24:44 2019 +0200
+
+    kunlun2: Copy Android P VNDK blobs
+    
+    Change-Id: I4f2f48ca4810247b2b951de27b82da0769f7d1b1
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit dc3e130b101d3d079edf35d989eb25924803f094
+Author: Henrique Silva <jhenrique09.mcz@hotmail.com>
+Date:   Wed Mar 13 18:11:09 2019 -0300
+
+    kunlun2: Declare physical display cutout support
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 322a7288e98044e51a0480fcf4e00d12c4740df3
+Author: ѕαмαя νιѕρυтє <samarvispute121@gmail.com>
+Date:   Sat Apr 11 18:28:52 2020 +0530
+
+    kunlun2: Add Lenovo's vendor platform signature
+
+commit e7c38e258b55d621256c7711ad888ab8ac90971f
+Author: Vitaliy Tomin <highwaystar.ru@gmail.com>
+Date:   Sat Apr 11 17:44:24 2020 +0530
+
+    kunlun2: Import custom touchpanel keylayout
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a19f97dcaee7a6a393487263bdd35df106cccc0b
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Apr 11 17:27:27 2020 +0530
+
+    Revert "sdm710-common: Add updatable_apex.mk"
+    
+     * kunlun2 iz FDE
+    
+    This reverts commit 9414a0fa4e833ed1fb831daaa962f684c49ec3e6.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 36cf1045f6cd4872d98c4887a5d746a7a05f01a0
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sat Apr 11 13:03:12 2020 +0530
+
+    kunlun2: Nuke dpm and embms blobs
+
+commit 2e6dc8ef74bbbca8b5c048527f58df63636edca0
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Apr 11 18:18:34 2020 +0530
+
+    kunlun2: Cleanup props
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit bdcc475b793c0a18a3567b1384cf5999d692ef8e
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sat Apr 11 12:50:53 2020 +0530
+
+    kunlun2: Update manifest.xml from stock
+
+commit bf9d5cbe3a49eab72ae88db630a0e914507149aa
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sat Apr 11 12:42:17 2020 +0530
+
+    kunlun2: Update WCNSS config from stock
+
+commit 0e7cf3235484554b9faed786139f7bde3f3f05d3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Apr 11 12:39:17 2020 +0530
+
+    kunlun2: Update extraction scripts
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 659dae57a24727e05d7b32cbf78a42153b7a521a
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sat Apr 11 12:37:51 2020 +0530
+
+    kunlun2: overlay: Update brightness overlays from stock
+
+commit 432e2365f1f4adf9e103dca039ebc233fb7e76ac
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Apr 11 12:31:00 2020 +0530
+
+    kunlun2: Remove some custom configs
+    
+     * vendor one's are fine
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e82fcc3c5caa19fe389f30ebea7aa1503ae2736a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 22:40:13 2020 +0530
+
+    kunlun2: Disable Selinux
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9fb2f8e0b859fe31e5efa7e776149dfe30e13bfa
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 22:38:03 2020 +0530
+
+    kunlun2: Update tap to wake node
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d5cc7b6ce365b773eaa3cc0234aece9a3ec5a6f5
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 22:21:48 2020 +0530
+
+    kunlun2: Remove all useless stuffs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit bfe26e1492730b03a9c73b771f5f3c4b47c064b1
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 22:05:11 2020 +0530
+
+    kunlun2: Add prebuilt kernel
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9e97efcf3a18d07ded5489140bf67f12d1f5446e
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 21:59:01 2020 +0530
+
+    Convert to kunlun2
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit baac476693b575da64f009d642c92bc2b5cae9a7
+Author: Diogo Ferreira <defer@cyngn.com>
+Date:   Mon May 16 14:47:22 2016 +0100
+
+    sdm710-common: Disable tap to wake by default
+    
+    Tap to wake introduces some additional power consumption, this patch
+    disables it by default.
+    
+    Change-Id: Ic33c44d72a2d0efcbe3a7dca0206558cbe1f4d6a
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a281459faa6a0aade6c9a17f9e681f47933bab4e
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Fri Oct 25 15:26:08 2019 +0200
+
+    sdm710-common: Update qti-telephony-common from DRG
+    
+    * Funfact: the blob has been modified to not alter
+      settings_network_and_internet_v2.
+    
+    Change-Id: I2f7bbc5b1c028afca35c81b8d631c96417e3ecf9
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 25560d6348ca26150e69d1a669512e78d01c54c0
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Apr 10 11:56:28 2020 +0000
+
+    sdm710-common: Bring back qti-telephony-common.jar
+    
+    This reverts commit 715148fe2fd6c1413510f0bad5b463d444e01b87.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 311fea04b562ad0cf9f6219efbfc96f271717964
+Author: Ashish Kumar Dhanotiya <adhanoti@codeaurora.org>
+Date:   Tue Oct 1 19:55:07 2019 +0530
+
+    sdm710-common: Add ini ignore_fw_reg_offload_ind
+    
+    Add ini "ignore_fw_reg_offload_ind" to ignore regulatory
+    offload indicatin from fw.
+    
+    Change-Id: Ie45bc35455efb4b3fd3512bafe140d4ae9580c4b
+    CRs-Fixed: 2542055
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5b3695e94ea1d8f552bb6fd3ef7231ec831ae2bc
+Author: Ashish Kumar Dhanotiya <adhanoti@codeaurora.org>
+Date:   Mon Feb 3 20:31:51 2020 +0530
+
+    sdm710-common: wifi: Remove TxPower2g and 5g from config file
+    
+    Ini config values TxPower2g and TxPower5g are not
+    getting used anymore.
+    Remove TxPower2g and TxPower5g from WCNSS_qcom_cfg.ini
+    for all the targets.
+    
+    Change-Id: Id85bec3e4ae3bb8012e13844bb0afa682a593fee
+    CRs-Fixed: 2607679
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 758f4e181c7d34b567f89f8b58551de013276a53
+Author: Arun Kumar Khandavalli <akhandav@codeaurora.org>
+Date:   Thu May 30 18:05:38 2019 +0530
+
+    sdm710-common: wlan: Enable LPRX by default
+    
+    LPRX was disabled previously on request because of some power issues.
+    Now that all the power issues is resolved enable the LPRX by default.
+    
+    Change-Id: Ie3655bacfd06d47598b04e8c2c89233a000307ce
+    CRs-Fixed: 2459952
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b19f2b5cba0c520972866f8d7ca4a402985df26c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Apr 9 15:42:31 2020 +0000
+
+    sdm710-common: Remove CarrierSettings from here
+    
+     * Now in vendor_pixelstlye
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 083fc1b51d4a0465d44148082acf6c5845d45250
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Thu Apr 9 13:54:30 2020 +0530
+
+    sdm710-common: Update tether overlays
+    
+    Ref: https://github.com/LineageOS/android_device_oneplus_sdm845-common/blob/lineage-17.1//overlay/frameworks/base/core/res/res/values/config.xml#L48
+
+commit 6b8ab2e5035608e855faf833407e972f1ee8bbfb
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Apr 7 20:24:04 2020 +0000
+
+    Revert "sdm710-common: Introduce 'SafailNet'"
+    
+    This reverts commit 46d5e09e1c86ba9e931d15f7ddfcb24933a474b7.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9c056060ce0e16ccc0911d04fd6a6e034f066640
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Tue Apr 7 13:13:21 2020 +0000
+
+    sdm710-common: Use fingerprint from Pixel 4 to pass CTS
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3e54f3dd23e75a5c15269c1203578fe9b6242d33
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Tue Apr 7 10:46:15 2020 +0530
+
+    sdm710-common: Update libvolumelistener from enchilada - QKQ1.190716.003
+
+commit f369b61ff6484379618d2852b9a520cdeef5bd7b
+Author: Danny Baumann <dannybaumann@web.de>
+Date:   Wed Nov 6 02:01:16 2019 +0100
+
+    sdm710-common: Disable CVP HAL
+    
+    This isn't used on SDM710 and spams logs as it continues to try
+    to start.
+    
+    Change-Id: I16928663232d5b4e9d005c60dfe080f9cc596d32
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 04dedc6ad147484d9580475eb375c336a4c174af
+Author: itsjoeoui <maximeyxw@gmail.com>
+Date:   Sat Mar 21 11:12:55 2020 -0400
+
+    sdm710-common: Build kernel with GCC 9.3
+    
+    Signed-off-by: itsjoeoui <maximeyxw@gmail.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0dc4c02c84023a694466146a2c6c1d5c2c0e4f13
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Apr 5 17:52:04 2020 +0000
+
+    sdm710-common: overlay-pe: Correct overlays location
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5788e2f923c9d912958c458bf5544afc0f9295d1
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sun Apr 5 22:51:22 2020 +0530
+
+    Revert "sdm710-common: Override some radio props"
+    
+    mah bad
+    This reverts commit 9316bb9f6ecdf51dec97316532c82489e67dc3ac.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 856ff7d6afa346bd2bc0d065ece71583b2dbb568
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Sun Apr 5 22:47:48 2020 +0530
+
+    sdm710-common: Disable sys.use_fifo_ui
+    
+    its kinda decreasing ui performance
+
+commit d5c271e20caaf3d9cea4b5c87ec8c9968cafa76b
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Sun Jul 7 01:47:00 2019 +0800
+
+    sdm710-common: Enable custom audio policy
+    
+    * AOSP one doesn't let us change volume when
+      listening to surround audio stream.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ea54233e57e86d797e1596f0936aba329ed5860a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Feb 15 22:59:40 2020 +0530
+
+    sdm710-common: rootdir: Disable edge limit control interface
+    
+     * Enable oppo touchpanel direction too
+     * Fixes multitouch on edge issue
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fc18d77e8e114785d0af4595d55fe6280a2e5fce
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 27 18:28:52 2020 +0530
+
+    sdm710-common: rootdir: Remove useless perms
+    
+     * also move blkio settings to on property:sys.boot_completed=1
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 664e59a9830e5d8ad36fb901c1454328332855de
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Mar 26 00:13:58 2020 +0530
+
+    sdm710-common: Enable TARGET_USES_INTERACTION_BOOST
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 56f6504f61e1c7e6bb0e74278d215da0469cf4a3
+Author: Alex Naidis <alex.naidis@paranoidandroid.co>
+Date:   Fri Feb 7 04:04:12 2020 +0100
+
+    sdm710-common: configs: lower background apps to 38
+    
+    * Improves memory performance and decreases power consumption
+      in our test cases.
+    
+    Change-Id: Iee64596a61cf1dfb0698417b61b658f9cc7aaa52
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1d041d65da270a6368f84adcf08cae3d2de2db2a
+Author: Michael W <baddaemon87@gmail.com>
+Date:   Fri Dec 20 04:17:35 2019 +0000
+
+    sdm710-common: Blacklist google hotword service
+    
+     * Fixes mic issue in third party apps
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d07301de0a2a7ac0a7178271cce7d469ab2c6292
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 22 15:38:45 2020 +0530
+
+    sdm710-common: Import QTI Power HAL from Lineage
+    
+     * https://github.com/LineageOS/android_vendor_qcom_opensource_power/tree/0db671a26287909fd2a866bcac07268bfb696d22
+     * https://github.com/LineageOS/android_hardware_lineage_interfaces/tree/lineage-17.1/power/1.0
+     * rootdir: Disable vendor.power-hal-1-0
+     * sepolicy: Lable android.hardware.power@1.2-service-qti
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 530df18b176278414a19307c5f2c2bf8e6bdadb3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Mar 24 18:25:35 2020 +0530
+
+    sdm710-common: rootdir: Update blkio settings from coral
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit eb7a690439298070393a5fe8c291014e6615eaec
+Author: Jake Weinstein <jake@aospa.co>
+Date:   Mon Oct 28 04:16:47 2019 +0100
+
+    sdm710-common: Enable UXE,IOP in perfconfigstore
+    
+    Matches stock Qualcomm configuration and improves performance.
+    OnePlus disables this because of their framework features, which
+    we do not have.
+    
+    Change-Id: I2b6e8c9ed59415bc7841bf244bd3dd9b5633088c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d5cb5501690c3d949a342ac203ba5544a5768106
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 22 15:17:14 2020 +0530
+
+    sdm710-common: Enable QCOM Boost Framework
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 4364207455a70a25469b62d2818220dd684be332
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 22 20:33:23 2020 +0530
+
+    sdm710-common: Remove lineage trust HAL
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5338993f41c5e1cdfdb536726c3f784173687b76
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 22 20:25:57 2020 +0530
+
+    sdm710-common: Rearrange overlays
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d5a635d142016c124d3e8f4a40b47514ab08afb7
+Author: luk1337 <priv.luk@gmail.com>
+Date:   Mon Jul 8 19:14:26 2019 +0200
+
+    sdm710-common: light: Drop notification LED support
+    
+     * also remove led capabilities overlay
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 531e208ca977697e1a789edf4b1a83084bc6c19a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Mar 21 11:14:33 2020 +0530
+
+    sdm710-common: Re-enable CameraAPI V2 by default
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 13b7bfe6f8a5500680b5d3433a6eb2f5e4dc25e1
+Author: Anjaneya Prasad Musunuri <aprasad@codeaurora.org>
+Date:   Wed May 8 20:36:53 2019 +0530
+
+    sdm710-common: Enable latch unsignaled buffers
+    
+    Change-Id: I2b743100a49d1328177230c1952580b62543b245
+    CRs-Fixed: 2449258
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit dd2a91304355c18069a10a41fc1338ff3e5ddf25
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Mar 21 00:33:32 2020 +0530
+
+    sdm710-common: rootdir: Disable oppo face hal
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3a6a043d4ecdc2032c607c5878268b9d0fdeae1a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Mar 21 00:22:22 2020 +0530
+
+    sdm710-common: rootdir: Apply blkio and Boot time FS tune settings from stock init.rc
+    
+     * also remove duplicate shitz
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b84986ea1023a76a476cec793ea750bbe4d0a626
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 20 10:43:11 2020 +0530
+
+    sdm710-common: Go enforcing
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a90ade27471fb178f34a0b3feecacb7906180f19
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Mar 19 11:05:49 2020 +0530
+
+    sdm710-common: Ignore neverallows for now
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 879aa5df819ef84feaa7fe547b993d019ed6731c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Mar 18 23:19:26 2020 +0530
+
+    sdm710-common: sepolicy: Address selinux denials
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 47b7691af42d558ba1351f9d16f168a5c3e8a93c
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 20 10:16:34 2020 +0530
+
+    sdm710-common: Add missing display related blobs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 01240a0311d820f9a3bd056c187a05d8516c45cb
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Wed Mar 18 23:56:02 2020 +0530
+
+    sdm710-common: releasetools: Fix derp on 01254bd84789e593f882cfeac1b8827d4c05ce1b
+
+commit e333f846007cbc2d415a51aa55cca6f55b846659
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 20 10:13:06 2020 +0530
+
+    sdm710-common: Compile libvulkan & vendor.display.config@1.0
+    
+     * were removed in c4eef6e ;__;
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 78c5637be59a15bc0ea5c774779ad0ca695d1a31
+Author: luk1337 <priv.luk@gmail.com>
+Date:   Fri Sep 20 16:18:41 2019 +0200
+
+    sdm710-common: Start using vendor_overlay
+    
+    * This lets us override files in /vendor without
+      relying on bind mounts ^.^
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d1373bf79698ca3040c06946f132b65cfe874135
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 15 12:05:07 2020 +0530
+
+    Revert "sdm710-common: Remove FM radio for now"
+    
+    This reverts commit b72df23f9627ce5c694c7908241b49561be2d3f3.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 47ccdf43068bfc9e1091373790d9d275ee15c1fa
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Fri Sep 13 19:52:06 2019 +0200
+
+    sdm710-common: Add aptX blobs from crosshatch
+    
+    * from crosshatch-user 10 QP1A.190711.020 5800535 release-keys
+    
+    Change-Id: I8b2529297b9df383145779e9a3e2fe7b632b4782
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ade6973eb028f9be614cbf385c8238c7be868686
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 15 12:01:00 2020 +0530
+
+    sdm710-common: Import WFD blobs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 83409865b2caf04e075ecc911eaf9909b2b56a53
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 15 11:58:24 2020 +0530
+
+    sdm710-common: Import DPM blobs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 83441ec200190a62fbc439a01ef7f369b53ee38e
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 15 11:56:36 2020 +0530
+
+    sdm710-common: Import PowerOffAlarm.apk
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 4e4c8d9569a1cdcbbaa0a0e34785d0c0b46d3cd9
+Author: Amruth Ramachandran <amruthr@google.com>
+Date:   Fri Mar 29 19:15:22 2019 -0700
+
+    sdm710-common: Enable IWLAN assisted mode
+    
+      Add  qti.data.iwlan package
+      Enable IWLAN HAL
+    
+    Bug: 130182008
+    Test: WFC sanity
+    Change-Id: Icd8b0ff567df13b7efd3ce8fd7fc768c733ac489
+
+commit 40b06eb286a5fecdb89f5c7091ee3cce2b89aaa4
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Sat Jan 5 21:44:39 2019 +0100
+
+    sdm710-common: Enable AOD
+    
+    * But disable it by default
+    
+    Change-Id: Ie85e49e38503dc531f262138d8bed465632a41c0
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2ba075de31c4753640e7ea1223ab29938d1d88c0
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Mar 14 11:26:11 2020 +0530
+
+    sdm710-common: Import doze from xiaomi_sdm845-common
+    
+      * https://github.com/LineageOS/android_device_xiaomi_sdm845-common/tree/65f0dd1a73e2088ceeca6922adef90fde21420e9/parts
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit caeca8272ff42c8cd035e9eca892e5402ddd4a2e
+Author: shoudil <stephenli@codeaurora.org>
+Date:   Wed Jan 16 16:05:41 2019 +0800
+
+    sdm710-common: add new property
+    
+    The property will be used to detect the framework type
+    at runtime.
+    
+    Change-Id: Id5ede408641cd371d546ee5b35087c71781e380b
+    CRs-Fixed: 2379644
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d0f96fa3da359d6f7669c5ebe026e3f3a2a4ce06
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 13 19:13:36 2020 +0530
+
+    Revert "sdm710-common: Nuke custom power HAL"
+    
+    This reverts commit 050ba7b36484f7cc3e3578dfb074ad56bdce4d43.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d9862caeec4ca8708e180c1a6ce3a7f6cf6b240a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Mar 13 18:37:57 2020 +0530
+
+    sdm710-common: Unset TARGET_BOARD_PLATFORM_GPU
+    
+     * Dosen't do anything
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a1fc2b45b515cd89f902082e34b740d6db24b7f3
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Mon Feb 24 16:07:47 2020 +0100
+
+    sdm710-common: Don't generate APEX image
+    
+    * Google didn't turn it on on coral, as do we
+    
+    Change-Id: Ic585c198c261640c5f61589e62ce3abaf52c20d9
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit edc5bfe69b6ea04f630f47e248da92722b428fb3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Mar 12 21:31:49 2020 +0530
+
+    sdm710-common: Import and bind mount stock manifest
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 82bbf4d6387e8e4afc0e02e1b6e6913e734d1844
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 9 17:25:32 2020 +0530
+
+    sdm710-common: usb: Convert to realme_sdm710 targets
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a685c189e6079629e33f2e4d283b7ce371fa43f9
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Mar 11 13:49:44 2020 +0530
+
+    sdm710-common: usb: Override stock usb hal service definition
+    
+     * also bind mount to vendor
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 74b1e7f2efdd21f36b9ca28e635dfc127d8dfba7
+Author: Ethan Chen <intervigil@gmail.com>
+Date:   Sat Sep 16 22:14:36 2017 -0700
+
+    sdm710-common: Add basic USB HAL that reports no status change
+    
+    Change-Id: I38bfe869f9b1b66db0e13249f65e438878d06eff
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a21c0f091fe2b6a82ed277652720db3fed17aaf5
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Mon Mar 9 14:17:06 2020 +0530
+
+    sdm710-common: Import more CarrierSettings
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5853c22a4cc013a8ddbfeb6f812fa0cfb6f1d192
+Author: razorloves <razorloves@gmail.com>
+Date:   Sat Sep 21 19:22:22 2019 -0500
+
+    sdm710-common: Use CarrierSettings app instead of CarrierConfig
+    
+    The CarrierSettings app enables/disables carrier apps based on sim
+    inserted, so use it instead of CarrierConfig.
+    
+    Change-Id: I163dd615e9d8268c5f94a28ae234a30f74c7e83b
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b6324d43097a10c30287e40de8a38754468c8885
+Author: Peter Cai <peter@typeblog.net>
+Date:   Mon Mar 2 16:49:27 2020 +0800
+
+    sdm710-common: Override ro.adb.secure for eng builds
+    
+    * `/vendor/default.prop` is setting `ro.adb.secure=1`.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6cfd619964cbbfef30e0a0b9bbcb2efe9d1382fa
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 9 20:57:36 2020 +0530
+
+    Revert "sdm710-common: Build libldacBT_dec"
+    
+    This reverts commit c3085e77c986df093962e3e8462246e87c2fca72.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 100eead59b83a78acbd304af53978484679597d0
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Mar 5 10:31:46 2020 +0530
+
+    sdm710-common: Move system props to product
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d0a4a684fe31c5a56cd76d3effadcadf6d9ced67
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Mar 3 12:27:01 2020 +0530
+
+    sdm710-common: Remove bind mounted fstab
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9316bb9f6ecdf51dec97316532c82489e67dc3ac
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:52:11 2020 +0530
+
+    sdm710-common: Override some radio props
+    
+     * vendor is enabling them, causing sim1 to not receive sms
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b72df23f9627ce5c694c7908241b49561be2d3f3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Mar 5 10:24:30 2020 +0530
+
+    sdm710-common: Remove FM radio for now
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d18d0798ba07db219ff55b3957dfccd2693fb860
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:46:54 2020 +0530
+
+    sdm710-common: Cleanup system props
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5b02da3f538c867e71a11bd82d6f15357001c4c4
+Author: Sandeep Gutta <sangutta@codeaurora.org>
+Date:   Thu Feb 28 19:03:21 2019 +0530
+
+    sdm710-common: Telephony: Add telephony_injection file
+    
+    Add telephony_injection file and required jar path, components.
+    
+    Change-Id: Ia2e0d327c1eaed17cb229f1cfca62c6bda85d49b
+    CRs-Fixed: 2407245
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 32eb30b6316e0bf2c3465074cfcbe312ef91015d
+Author: Suresh Koleti <skoleti@codeaurora.org>
+Date:   Fri Dec 28 14:44:41 2018 +0530
+
+    sdm710-common: IMS: decouple ims-ext-common from boot jars
+    
+    -- Include ims_ext_common permission xml.
+    
+    Change-Id: Ide3ecae57cc1909180c8d8f323aa31620e900888
+    CRs-Fixed: 2373721
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2035afc714d3b67c3267b49649d20cdb2df07946
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jan 6 17:52:12 2020 +0000
+
+    Revert "sdm710-common: Create system copy of ims-ext-common and add to classpath"
+    
+    This reverts commit aeacc5af5ffe7c974a7d6abfd5aa27643fc3c02e.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e3348f0c1b1a0bc5f710edff22a402c4356f584d
+Author: Sumit Das <sumidas@codeaurora.org>
+Date:   Mon Nov 26 15:01:19 2018 -0800
+
+    sdm710-common: FR53248:Android Q::Remove hidden API references in ims.apk
+    
+    Add telephony-qti-utils libarary to product packages
+    
+    Change-Id: Ie8651ebadc246c21bd5eb69ef060fe32d8f5f7c8
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 66f5d9aeeb09c3384edd40742329fa4ef3ee51ae
+Author: Wileen Chiu <wileenc@codeaurora.org>
+Date:   Mon Nov 26 12:08:55 2018 -0800
+
+    sdm710-common: Add support for telephony hidl wrapper
+    
+    Change-Id: I4e248bb6de482d503e672d284189b24cafac8d20
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fa60854067304196c6188ec9ddd60d853434384d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:30:59 2020 +0530
+
+    sdm710-common: Update blobs to Q
+    
+     * Remove WFD blobs for now
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 715148fe2fd6c1413510f0bad5b463d444e01b87
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:30:04 2020 +0530
+
+    sdm710-common: Remove unused qti-telephony-common
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0ebb79695c5bbaf0203042190fddd4006c2e02c4
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:24:31 2020 +0530
+
+    sdm710-common: Remove redundant things
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c8b4b91fe21e4668f2c772f86787cbcd5e88aac5
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:17:35 2020 +0530
+
+    sdm710-common: Update configs from stock Q
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6cdd6f4cda594b9a9f2ded1827d9f86216e2d7b2
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:14:10 2020 +0530
+
+    [DNM]sdm710-common: Remove WfdCommon from bootjar
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 45e639bc564fbdc83c34be2cb340ffd334dd8b55
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:22:37 2020 +0530
+
+    sdm710-common: Remove QTI configs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a75d6767463d6f9ded6545fd0b81ea59dbb482f5
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:13:08 2020 +0530
+
+    sdm710-common: Nuke BluetoothResCommon
+    
+    * Not needed on Q vendor
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2be973bcd64c9ae60b3be858e3bc7eea333a0df2
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:09:35 2020 +0530
+
+    sdm710-common: Switch to vndk 29
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 050ba7b36484f7cc3e3578dfb074ad56bdce4d43
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Mar 2 15:08:46 2020 +0530
+
+    sdm710-common: Nuke custom power HAL
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 01254bd84789e593f882cfeac1b8827d4c05ce1b
+Author: Dyneteve <32036579+Dyneteve@users.noreply.github.com>
+Date:   Tue Dec 17 19:27:02 2019 +0200
+
+    sdm710-common: releasetools: Fix on incremental updates
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 369cb70d7df3dca45157aa87b39a8884bdf5ba1d
+Author: Erfan Abdi <erfangplus@gmail.com>
+Date:   Wed Aug 21 17:27:46 2019 +0430
+
+    sdm710-common: set ro.vendor.fm.use_audio_session
+    
+    Change-Id: Ie1df15211d0c670767e87deefdfe7b134b87f12a
+    Signed-off-by: Erfan Abdi <erfangplus@gmail.com>
+
+commit 20b05916b30512d177561501c4f8e883189beb28
+Author: XiNGRZ <chenxingyu92@gmail.com>
+Date:   Mon Apr 29 03:23:26 2019 +0800
+
+    sdm710-common: releasetools: Ship and update vbmeta image
+    
+    Change-Id: I8bb4da99945eceae3beab77489e6b9e2a47ab972
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit df8ea318ad1fc19cc8870d37c4338035e9c8f2a7
+Author: Rashed Abdel-Tawab <rashed@linux.com>
+Date:   Fri May 24 21:04:19 2019 -0700
+
+    sdm710-common: Build disabled VBMeta image
+    
+    Change-Id: If3d53ad70c960fe1db85bbebb356062088ee8ce0
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 51c1bd4f3da785403f75f282b74fd4c09ab664d2
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Feb 19 20:17:35 2020 +0530
+
+    sdm710-common: Don't force enable IMS and WFC
+    
+    This reverts commit 3dc9353e201cb3e5e854a0fce74df89869019cca.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 71b7bed60d1f2380c7860ec1ae1d7183aa0642db
+Author: Shubham Das <dasshubham762@gmail.com>
+Date:   Mon Feb 10 19:23:39 2020 +0530
+
+    sdm710-common: overlay: Enable ViLTE for Airtel (India) & 404 mcc
+    
+    * Airtel India uses some mncs of 404 mcc
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ae10f2083cbb4b69026da2b8f03917958ee4a6cb
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Mon Feb 10 14:55:15 2020 +0200
+
+    sdm710-common: overlay: Enable VoLTE/VoWIFI for Digi Malaysia
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b8be802829daa290155a96e3d5fc6a1940cba78b
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Mon Feb 10 14:49:25 2020 +0200
+
+    sdm710-common: overlay: Enable voWIFI for Airtel
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 33d736ddc4e3cd26026dc002b25a32ba0baa6411
+Author: Shubham Das <dasshubham762@gmail.com>
+Date:   Mon Feb 10 16:45:25 2020 +0530
+
+    sdm710-common: overlay: Make WiFi Calling preference editable for Jio (India)
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 8081484d8f21d03cd9e12c71df1aa93f5876833a
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Thu Feb 6 16:47:24 2020 +0200
+
+    sdm710-common: overlay: Enable VoLTE/voWIFI for entire 226 mcc
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a6a4eb18756fbf62f188846a067d7e6f7edb9150
+Author: Ravi Paluri <rpaluri@codeaurora.org>
+Date:   Mon Dec 16 19:22:08 2019 +0530
+
+    sdm710-common: IMS: Enable IMS feature flags for supported carriers
+    
+    Enable IMS feature flags for supported carriers
+    
+    Change-Id: Ib5dd349e02946f432ea4bff5cb89bb8dd4037bd2
+    CRs-Fixed: 2595292
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6b22fca9f4fde95807ea3acf637e16f7112407d5
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Thu Jan 30 20:42:41 2020 +0200
+
+    sdm710-common: overlay: Get VoLTE/VoWIFI for Digi Mobil going
+    
+    * It's actually 05 not 5 (Stoopid)
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d0de5fd2b58c04bab3b11b613979567245f91c9b
+Author: Henrique Pereira <hlcpereira@pixelexperience.org>
+Date:   Sun Jan 26 11:36:36 2020 -0300
+
+    sdm710-common: Enable VoWIFI for MTS (Russia)
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5312362a10b88a1b87242e07ac7c61e6e9900130
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Sun Jan 26 13:34:05 2020 +0200
+
+    sdm710-common: overlay: Enable VoLTE/VoWIFI for Turkcell/Digi
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 158ff8cdf1d2c2cf1d5d005457b9a0919d17555d
+Author: Shubham Das <dasshubham762@gmail.com>
+Date:   Sun Jan 26 17:04:21 2020 +0530
+
+    sdm710-common: overlay: Enable VoWIFI for Airtel
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0c802a50429717f3ababfcaea35202927bd26f08
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Fri Jan 24 20:07:00 2020 +0200
+
+    sdm710-common: overlay: Enable VoLTE/VoWIFI for Digi Mobil
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e0534c9dbf85cc0f4a6f073fb16530e8ac70e050
+Author: Henrique Pereira <hlcpereira@pixelexperience.org>
+Date:   Tue Jan 7 11:51:48 2020 -0300
+
+    sdm710-common: Enable VoLTE/WoWIFI for Megafone, MTS and Tele2/ECC/Volgogr
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 05b8dae57672ef74893989c7f4bf3e161a997582
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Tue Dec 17 18:37:26 2019 +0200
+
+    sdm710-common: overlay: Enable VoLTE/VoWIFI for all indian cariers
+    
+    * Preatty much all of them support volte
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d19e504eb0d3c2b8a9f44f006b544a6f9562de00
+Author: Rooban <roobanponrajn@gmail.com>
+Date:   Wed Nov 27 21:43:26 2019 +0530
+
+    sdm710-common: Add 404/94 for Airtel/TN
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b04cdef102291223dbb6c0b050d657e1aa03091e
+Author: David Delima <legendavey@gmail.com>
+Date:   Sat Nov 16 14:24:59 2019 +0000
+
+    sdm710-common: Update CarrierConfig for Indian carriers
+    
+    Signed-off-by: Henrique Pereira <hlcpereira@pixelexperience.org>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ceb5f7f1e8737f9999efe95a6b9f00cbcacaa6e1
+Author: Vinay Verma <vvinay@codeaurora.org>
+Date:   Fri Oct 5 12:38:44 2018 +0530
+
+    sdm710-common: Remove firmware class path for kernel firmware loading
+    
+    In ueventd support has been added to read firmware path from
+    vendor. It wil parse /vendor/firmware_mnt/image information
+    and add in look up path/search path for loading firmware.
+    Change uid of /vendor/firmware_mnt back to system as kernel
+    firmware loading is removed. Previously root permissions were
+    required to support kernel firmware loading.
+    
+    Change-Id: I560ed75ee07626094acbc879b615190cf3a9faa3
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2d65b1b813a48fcfd1dae189f769e926e84edb83
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Wed Dec 25 16:33:01 2019 +0200
+
+    sdm710-common: Add NexusLauncherRelease to PRODUCT_DEXPREOPT_SPEED_APPS
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit afa3ecdb8a217d8222e95b6dccfba58deec0656d
+Author: razorloves <razorloves@gmail.com>
+Date:   Sun Dec 1 23:46:46 2019 -0600
+
+    sdm710-common: Dexpreopt speed compile SystemUI instead of SystemUIGoogle
+    
+    Change-Id: I3331f8e65898f8696953b2602b9ad963f7e4313d
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 459ee400ea5ac179e28d0aad70eaf8d25e632195
+Author: Wei Wang <wvw@google.com>
+Date:   Fri Feb 2 13:01:38 2018 -0800
+
+    sdm710-common: add SysUI to PRODUCT_DEXPREOPT_SPEED_APPS
+    
+    Test: Build
+    Change-Id: I088938462b389e1ebe783997f773dc5946345666
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 4147e20ec736f2c9ee74e9e5d7cc8d7ba4e4fff5
+Author: Jorim Jaggi <jjaggi@google.com>
+Date:   Fri Jun 1 17:18:41 2018 +0200
+
+    sdm710-common: Enable early phase offsets
+    
+    Since we frequently hit GL composition during transitions, it
+    makes sense to enable early phase offsets on crosshatch.
+    
+    Test: Open apps, observe no jank
+    Bug: 79173695
+    Change-Id: Ie44b116b1a4f2c8fde1ba4decbbc6e3316686a5d
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 919cf9525f232a23ee34f766ccce01fa99c948ef
+Author: Ady Abraham <adyabr@google.com>
+Date:   Wed Jul 24 11:05:44 2019 -0700
+
+    sdm710-common: enable GL comp backpressure
+    
+    Enable backpressure for client composition to avoid jank due to
+    HWC queue stuffing.
+    
+    Test: 1. Open Camera
+          2. Swipe horizontally to go back to previous app.
+    
+    Bug: 138083790
+    Change-Id: I3d26aa470c1660b23bd97133f39858f92638aca8
+    (cherry picked from commit 4e8a210c0e3e6854cd34f432f52e3f4821e7b2d5)
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6a551f5c0f3fc3784815baba8caf83d45becfc2c
+Author: Subhrajyoti Sen <subhrajyoti12@gmail.com>
+Date:   Mon Aug 12 20:42:45 2019 +0200
+
+    sdm710-common: wifi: reduce battery drain
+    
+    Change-Id: Ic4ab888b17c8c818f0bd6a2ef2cff1f6a7fa2740
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5f3c8e775db33e911a5d7b2c0506b7d5368eaa4f
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Jan 30 19:33:09 2020 +0530
+
+    sdm710-common: Track Kernel source and Proprietary blobs repo
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 79ffb9374770c4058546f36615ed22286933cfd3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Jan 30 12:46:33 2020 +0530
+
+    Revert "sdm710-common: Track LineageOS devicesettings"
+    
+    This reverts commit 5394c8ccc92cddaacfef20ef3881345abe4057ef.
+
+commit 6318faba99c20f2dc72849a4fb636b7a8d4ad0cc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Jan 30 12:28:03 2020 +0530
+
+    sdm710-common: Import some radio props
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3becd76fa4be2a6b12c327dc4b4d039661ab98dc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Jan 28 15:47:43 2020 +0530
+
+    Revert "Revert "sdm710-common: Add a new list of pinned file for the JIT in zygote experiment.""
+    
+    This reverts commit 228771ede1697cbc5ca2b4221de1422390312c13.
+
+commit be7ee5f68d286ffb8e1aad5ac4b3635681dcf4bc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Jan 28 15:47:38 2020 +0530
+
+    Revert "Revert "sdm710-common: Add updatable_apex.mk""
+    
+    This reverts commit e5290ac1ee761516348230d8c939569b04c69a39.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5ee0aca65a6f45227df50935ee800d1e3fedb49b
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Jan 28 15:47:08 2020 +0530
+
+    Revert "Revert "sdm710-common: Generate the apex image.""
+    
+    This reverts commit 7ba00d555dd59aed1e783ca72551c79d68c33ccb.
+
+commit 550869b4ef3701a1ab10522f666d57e7b413145a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Jan 25 13:26:59 2020 +0530
+
+    sdm710-common: Nuke CNE stack
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a53de2df80076657cfcdf2f2785dd8f0c1217391
+Author: Kalpaj Chaudhari <daedroza@gmail.com>
+Date:   Wed Jun 26 15:07:39 2019 +0530
+
+    sdm710-common: wifi: Enable etsi13_srd_chan_in_master_mode
+    
+    Change-Id: I41ca8a4c326ab35a98d1a53a9c1e8df8775ed9d7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 082d309c9c856090f7b1eb2b382f9fc3da2e8a4d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Jan 19 12:19:13 2020 +0530
+
+    sdm710-common: Import and bind mount stock WCNSS_qcom_cfg.ini
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9b38fdf2cd318cc6aa052107808e1bc6a3875ed8
+Author: Dyneteve <dyneteve@pixelexperience.org>
+Date:   Wed Dec 25 16:53:42 2019 +0200
+
+    sdm710-common: Remove dex flags
+    
+    * Already enabled on Q
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9232dfafbac8fb4cd84b6679f3d2c5a3a94c9654
+Author: Purushottam Kushwaha <pkushwah@codeaurora.org>
+Date:   Tue May 22 21:10:51 2018 +0530
+
+    sdm710-common: overlay: Enable ACS and 11ac for softap operations
+    
+    This sets below flag to true:
+      config_wifi_softap_acs_supported
+      config_wifi_softap_ieee80211ac_supported
+    
+    Change-Id: Ie8192caaabfea2853f8f7e9a3644be836bba37ab
+    CRs-Fixed: 2244800
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9ab4d78e4fbd749424858743c16738f8307486a0
+Author: Hyejin Kim <hyejin.kim@lge.com>
+Date:   Fri Mar 13 16:30:41 2015 +0900
+
+    sdm710-common: overlay: Enable lid switching
+    
+    Closing the lid causes the device to go to sleep and
+    opening it causes the device to wake up.
+    
+    Change-Id: I866827eb56a29055a0af11b4513e45dbcf364a51
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f690e6750d5eb6bbe5fb21d56a4f3c1d949af963
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Jan 15 23:16:34 2020 +0530
+
+    sdm710-common: Remove unwanted android.hidl.manager@1.0
+    
+     * We only need android.hidl.base@1.0 for libwfdnative & libfm-hci
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5f70c7615cb0b9b5c04672b7bdf0b33ab519f9c4
+Author: Sujin Panicker <spanic@codeaurora.org>
+Date:   Thu Jul 11 15:03:10 2019 +0530
+
+    sdm710-common: audio: Remove unnecessary profiles from USB input device
+    
+    CTS test USB Audio Peripheral Attributes fails due to
+    extra profiles getting added
+    
+    remove the extra profiles added for USB input device
+    
+    Change-Id: I19311a65612bb8ecad40d9a3714a5cfe32dce110
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c9251d69e8fb8f33f8035c98ce45748aa3c2cbcc
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu Mar 14 14:30:13 2019 +0100
+
+    sdm710-common: Don't advertise vorbis offloading support
+    
+    * Doesn't work at all.
+    
+    Change-Id: I8cd6341b240c3820dbbdef497e23e785b6ed99dc
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0328aa5718878e63891379683fb8e1c65f3f598e
+Author: Karthik Gopalan <gkarth@codeaurora.org>
+Date:   Thu Nov 29 17:00:58 2018 +0530
+
+    sdm710-common: Cleanup deprecated perf props
+    
+    core_ctl min/max cpu props are removed.
+    
+    CRs-Fixed: 2358231
+    
+    Change-Id: I8af3982624396f9dab644a9d7b54034836a205d3
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 601e34c3a998d2f36190a042488ee92b9d28106f
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jan 13 18:38:38 2020 +0530
+
+    Revert "Revert "sdm710-common: Enable connected MAC randomization""
+    
+    This reverts commit f843867020722a15737bb93b3fbc467b2f736a79.
+
+commit d44bc5ac0fdaf69321fa88a81a81b5bfad6f00e7
+Author: Prakash Pabba <ppabba@codeaurora.org>
+Date:   Fri Sep 20 17:37:50 2019 +0530
+
+    sdm710-common: overlay: Add ethernet type in network attributes
+    
+    testGetAllNetworkInfo CTS test fails for instant
+    mode due to no ethernet type network attribute
+    support and selinux denial to find ETHERNET_SERVICE.
+    
+    Add ethernet type network in network attributes overlay.
+    
+    Change-Id: Ie70df6c0473aa1b20d383f2892d18a2f0583c7a9
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ebc1a01422b6c840810152977512e0ae9a1481ba
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jan 10 14:17:08 2020 +0530
+
+    sdm710-common: Sync CarrierConfig overlay with latest CAF tag
+    
+     * LA.UM.8.8.r1-06400-SDM710.0
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1dc2ff8b2a527afcdd16f07334fa89ec3794d9af
+Author: Simon Shields <simon@lineageos.org>
+Date:   Thu Aug 24 13:54:01 2017 +1000
+
+    sdm710-common: Remove qvga/vga profiles & lpcm codec
+    
+    * These are unsupported in AOSP
+    
+    Change-Id: Ibafea102cbfb4fd27c2c0317e9f36cbc811f3f57
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9159fe74381db094e5d199cd04ff416e59f61177
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Jan 8 06:14:47 2020 +0000
+
+    sdm710-common: Import stock media_profiles_vendor config
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3b53c2471ad47ebd38b9f61f89cb22ff7235b01f
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Jan 10 17:41:47 2020 +0000
+
+    sdm710-common: Include missing stock bluetooth property
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1b12508353733de522fa69a57488b2a84239bdc1
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jan 6 17:40:52 2020 +0000
+
+    sdm710-common: Add additional CarrierConfig overlay from stock
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 7c623fb40e2ae22b7d62bc6853734c51f2836147
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Jan 5 19:54:19 2020 +0000
+
+    sdm710-common: Nuke doze
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1ede3e61ad759d1a14324e0d54c12f36c7e864e6
+Author: karthick111 <karthickrko61@gmail.com>
+Date:   Mon Jan 6 08:43:11 2020 +0000
+
+    RMX1801: fingerprint: Update
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b5486101b1c818f806a202df1dae32fbe8ae1c74
+Author: Peter Cai <peter@typeblog.net>
+Date:   Sat May 18 17:04:58 2019 +0800
+
+    overlay: adjust right padding of keyguard icons
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 84f30458ef7efdc045de2e064471514d6c8c3bfc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jan 6 07:01:25 2020 +0000
+
+    overlay: Improve rounded corner padding
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c3085e77c986df093962e3e8462246e87c2fca72
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jan 6 06:59:29 2020 +0000
+
+    sdm710-common: Build libldacBT_dec
+    
+     E a2dp_vendor_ldac_decoder: A2DP_VendorLoadDecoderLdac: cannot open LDAC decoder library libldacBT_dec.so: dlopen failed: library "libldacBT_dec.so" not found
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit af6474d8d8248f152da7c363e0ede3027a3a8a72
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Thu Dec 7 22:15:14 2017 +0800
+
+    sdm710-common: Build dummy android.hidl.[base,manager]@1.0
+    
+    Change-Id: I81a081130869c4d92f30b2674e75bb6b096a7a2c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 51c407cf6fd5e02c821ce69dd7a37fd100b4b8b3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Jan 2 18:45:22 2020 +0000
+
+    sdm710-common: Track LineageOS devicesettings
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 950d8c570623343a3e866ac307dd0a659a5a9ed6
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Wed Nov 27 18:42:21 2019 +0000
+
+    sdm710-common: Migrate live wallpaper package
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 50b8f038b3a6d83a2ac5da65bf87923e807dcbfa
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Mon Nov 25 01:35:08 2019 +0000
+
+    sdm710-common: Switch to pixel 4 live wallpapers
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 78ae7d5057c8f45511dcee2d03b1f773dd08404e
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Dec 27 12:55:26 2019 +0000
+
+    sdm710-common: Fix helper path for PE
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ae72da5389f76ed128acea8e585e62191d084a3d
+Author: Dhananjay Kumar <dhakumar@codeaurora.org>
+Date:   Wed May 15 21:14:12 2019 +0530
+
+    sdm710-common: configs: Remove surround recording support from audio policy config xml
+    
+    Remove surround sound recording support from audio policy config xml
+    as its resulting in CTS failure due to mismatch in channel index support
+    for record usecase.
+    
+    Change-Id: Idf50b3f2e71c4209720e79c0248ce74bc1a0edf2
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fdd114c2efa3218964e07b12de05a9297d421175
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Tue Sep 10 11:44:50 2019 +0200
+
+    sdm710-common: Move bind mounts to post-fs
+    
+     * Also bind mount regular audio_policy_configuration.xml
+    
+    Change-Id: I979bb500ab36ec93e20a97cae7ac930c988b9a6d
+
+commit 46d5e09e1c86ba9e931d15f7ddfcb24933a474b7
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Sun Nov 12 19:29:06 2017 -0200
+
+    sdm710-common: Introduce 'SafailNet'
+    
+    Bypass safetynet even if we have permissive selinux
+    
+    Change-Id: Ib44cdbd15b53af3a1768cb0912f2dbcc56a8d97e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 14f1700c2c795659aab730eea5c9ea1f69027bb8
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Thu Dec 26 15:11:57 2019 +0530
+
+    sdm710-common: Readd embms blobs
+    
+     * libdiag too
+
+commit 51751c88ebedc92d3d3f4d31b6078ca6d8a9a72f
+Author: theimpulson <aayushgupta219@gmail.com>
+Date:   Fri Jul 19 13:02:59 2019 +0000
+
+    sdm710-common: Build FM2
+    
+    Change-Id: I8623cc4662b9dfcd59a52a87f365e679968b19bb
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2de473666885b811fb0f519661d01cc28db1b9fe
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sat Dec 22 19:07:24 2018 +0000
+
+    sdm710-common: Enable B-services aging propagation
+    
+    Change-Id: I4ac0525933bb421f7d025c5e4c6a1de0f083c46e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit afd35536ef564f08fcf04fb4f3b71665d83c53a8
+Author: Paul Keith <javelinanddart@gmail.com>
+Date:   Thu Mar 8 23:44:00 2018 +0530
+
+    sdm710-common: Enable QCRIL radio power saving
+    
+    Change-Id: I339d0fbec60b554c6b7930162f5a917e052fc5a1
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 564b50eacd301f5845f42807d451ce981bface35
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu Mar 16 22:41:56 2017 +0100
+
+    sdm710-common: Remove unsupported fstab flag
+    
+    * fs_mgr: Warning: unknown flag reservedsize=128M
+    
+    Change-Id: I39a8b2e4e1e3ff6d9c2258fd259298d08714e4e3
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b629214af68277a55d2c8a2f28ab4551b66f3817
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Dec 22 09:05:04 2019 +0000
+
+    sdm710-common: Bind mount fstab.qcom
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5159bc356875c9296aa5dda90a9737df5aedb5e7
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:41:26 2019 +0000
+
+    sdm710-common: Fix derp
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 0732095af8873b4bd0b646cd739d3576915b5837
+Author: Henrique Silva <jhenrique09.mcz@hotmail.com>
+Date:   Thu Oct 18 09:09:17 2018 -0300
+
+    sdm710-common: overlay: Ignore RSSNR signal level
+    
+    Improve reception
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 63f047b7758e6fe5063603e0a14b834f2ce034c4
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:24:15 2019 +0000
+
+    sdm710-common: system_prop: Correct default network
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit def5e5332f8bacaf5f888a8bb2e987bf9106c099
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:22:17 2019 +0000
+
+    sdm710-common: Readd Snap camera
+    
+     *with camera api v2 support
+     * Enable Camera API V2 by default too
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 12ba690e5bf33afab871c567a119df83950b3a79
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Wed Sep 11 18:10:23 2019 -0300
+
+    sdm710-common: doze: Follow Android 10 changes on switchbar
+    
+    Change-Id: Ifad28dc874233eb41d89580895b769ecbc3ea670
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit cb71f930d5c13b8cad253ac947c5f03fbf6dec7d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:15:10 2019 +0000
+
+    sdm710-common: Build doze
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f843867020722a15737bb93b3fbc467b2f736a79
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:08:19 2019 +0000
+
+    Revert "sdm710-common: Enable connected MAC randomization"
+    
+    This reverts commit b22c9667d8ee187c29037a705949ea60c7029859.
+
+commit 74b05ddf7862bc5d1aa3489fc0cf7d65aa25fd12
+Author: jumoog <kilianvonpflugk@gmail.com>
+Date:   Fri Aug 25 10:29:05 2017 +0200
+
+    sdm710-common: removing AUDIO_OUTPUT_FLAG_RAW
+    
+    removing AUDIO_OUTPUT_FLAG_RAW to disable ull playback which could cause creaking sound
+    
+    Change-Id: Ifdde121b1eb289399a556ef9e086b300c0a0be45
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 59a3188e96835f52f62b82c8ed9e66e3ea782419
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:05:37 2019 +0000
+
+    sdm710-common: Force enable d2tw
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 657e1976e4aa0e912e79ff05103e9e9c27223505
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Sun Jul 15 09:42:44 2018 +0200
+
+    sdm710-common: Enable double tap to wake support
+    
+    Change-Id: I78b853eada19aba7b4569c25b92073ca27bde548
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d89fda11a3c021a6b76dd3dbfb1d9e4fe9a97065
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Dec 21 10:03:46 2019 +0000
+
+    sdm710-common: power: Remove dependency on generated kernel headers
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 7ba00d555dd59aed1e783ca72551c79d68c33ccb
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Dec 17 06:31:46 2019 +0000
+
+    Revert "sdm710-common: Generate the apex image."
+    
+    This reverts commit def6db396f538f9d516915649630b80fc8821be7.
+
+commit e5290ac1ee761516348230d8c939569b04c69a39
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Dec 17 06:31:42 2019 +0000
+
+    Revert "sdm710-common: Add updatable_apex.mk"
+    
+    This reverts commit 9414a0fa4e833ed1fb831daaa962f684c49ec3e6.
+
+commit 228771ede1697cbc5ca2b4221de1422390312c13
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Dec 17 06:31:15 2019 +0000
+
+    Revert "sdm710-common: Add a new list of pinned file for the JIT in zygote experiment."
+    
+    This reverts commit b0c49080c72519f0cf1132a275cfb7c298b22717.
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2c0dbd44915e6406869d22a5684a0b3391bf79e1
+Author: luk1337 <priv.luk@gmail.com>
+Date:   Sun Dec 15 08:20:03 2019 +0000
+
+    RMX1801: overlay: Enable config_fingerprintPostResetRunnableForAllCliens
+
+commit 88d8016fd0a41c084d699c1a0c99e8c48db562c3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Dec 10 13:12:11 2019 +0000
+
+    sdm710-common: Build libnl
+    
+     * Add WfdCommon to bootjars
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 35f973ffca3efb067e34f32722b8894dad45e895
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Dec 4 06:24:09 2019 +0000
+
+    sdm710-common: Fix rounded corners in Q
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c4eef6e799caf5497cbe7adf0f7426e7f4716243
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Dec 12 14:40:20 2019 +0000
+
+    sdm710-common: Cleanup useless flags and packages
+    
+     * Do not enable hal3 by default
+     * Remove snap too
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5a62a81993e20a07963c2118590bf50762818057
+Author: Vladimir Oltean <olteanv@gmail.com>
+Date:   Fri Mar 22 22:37:05 2019 +0000
+
+    sdm710-common: Sync extractors with templates
+    
+     * This introduces fixup scripts and kang mode and fixes
+       passing of arguments longer than one word,
+       such as --section "Hello world".
+    
+    Change-Id: I42dde659e9bea4f7e1c9a7a3fa8da3243774ca4e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b22c9667d8ee187c29037a705949ea60c7029859
+Author: xshu <xshu@google.com>
+Date:   Tue Jan 15 17:28:39 2019 -0800
+
+    sdm710-common: Enable connected MAC randomization
+    
+    * Also revert commit cf6bc6c97bc55aff4b834b9e82cc1e5f8123f527
+    
+    Change-Id: Ia3f58a44c2e072aaa6c711a9db37219626894c67
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2d54794bd74acdab60f7121ab12b3e3f94f2387d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Dec 1 13:57:47 2019 +0000
+
+    sdm710-common: Add perms for egis fp
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ec1143de1d62d0aa7fa374bc53062ac3b8f44364
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Mon Sep 2 10:15:57 2019 +0100
+
+    sdm710-common: doze: Clean up proguard flags
+    
+    Change-Id: If0250fb629417d36c2af7286bc0620e682c4576e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 2bffd4d8c2cce5f811277688c7aee83d59fa454f
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sat Jan 5 19:35:14 2019 +0000
+
+    sdm710-common: Declare STATE_DOZE support
+    
+     * This is required for Ambient Display to work properly.
+    
+    Change-Id: Ibad86be4e1c43a221fc2224d0a8f8ca2c938a6c7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a35b139c070334c245bc961450f2b33d06cd13d2
+Author: Lucas Dupin <dupin@google.com>
+Date:   Tue Mar 20 16:20:07 2018 -0700
+
+    sdm710-common: Renamed config_dozeAfterScreenOff
+    
+    New name is config_dozeAfterScreenOffByDefault
+    Bug: 73178121
+    
+    Change-Id: Ie3d1ea5a2cc480655592bf6e49b37f5ea07f3f5
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a24d7a5d3507de8186be2f36a75e58d243d95e93
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Tue Sep 25 23:44:44 2018 +0100
+
+    sdm710-common: Ship proper postprocessing soundfx libs
+    
+     * The lib responsible for audio postprocessing (libvolumelistener)
+    
+    Change-Id: I27d631e5fea0dbd338c18a529b26d1ef700affd7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e6235ebfb85fcebebd256b19bac54957e2322882
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Oct 30 19:41:55 2019 +0000
+
+    RMX1801: fingerprint: Don't limit FPC to the system-background cpuset
+    
+    * Improves speed lilbit
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 66ff3b0565572c894c64baa0a538af0fc21d8249
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Oct 29 17:13:31 2019 +0000
+
+    sdm710-common: Cleanup proprietary blob list
+    
+     * also use ims.apk and qti-telephony-common.jar only from davinci
+     * Add power-off alarm framework
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ea2559bd9622c09cab9a49f9611dc58f832a8065
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Sun Dec 23 13:29:50 2018 +0100
+
+    sdm710-common: Build only 64bit power hal
+    
+    Change-Id: I3dd347b6fa66bbb82224adf9081d1512920263da
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 1012b94af973092296f928d4294efde370377338
+Author: tomascus <arbiter1000@gmail.com>
+Date:   Wed Feb 13 14:42:27 2019 +1100
+
+    sdm710-common: power: Don't use SCROLL_PREFILING
+    
+    The current use of the SCROLL_PREFILING hint hurts scroll performance
+    and results in a lot of dropped frames.
+    
+    The hint ID corresponding to SCROLL_PREFILING only takes into effect for
+    a default timeout value of 80 ms (as found in perfboostsconfig.xml),
+    while the duration value in the process_interaction_hint function runs
+    for a much longer time, from 1500 ms up to 5000 ms (bounds of
+    kMinFlingDuration and kMaxInteractiveDuration). During the period
+    of time, when the timeout value has elapsed and current time is less
+    than duration, another interaction hint cannot be processed. Therefore,
+    if the user decides to scroll during this period, high frame drops can be
+    experienced as the CPU freq isn't raised by processing another hint to
+    account for this additional scrolling.
+    By only using SCROLL_VERTICAL, fluidity can be maintained, improving user
+    experience.
+    
+    Change-Id: I2fbde8b2db6710d262e9a058e0bc9c02e524648c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 18960a49721abf6a41fdcf4a9ff6e7341ba4939c
+Author: tomascus <arbiter1000@gmail.com>
+Date:   Tue Feb 19 17:15:58 2019 +1100
+
+    sdm710-common: power: Release launch boost perflock when launch is completed
+    
+    Currently, the launch boost perflock is held for a fixed duration, either
+    specified in perfboostsconfig.xml for perf HAL platforms or hardcoded in the
+    powerHAL for non-perf HAL platforms.
+    
+    Using a fixed duration for this perflock has two shortcomings:
+    * perflock can be held for too long, causing the CPU freq and other resources
+      to be boosted for too long even if the application has finished launching,
+      resulting in excessive battery drainage
+    * perflock can be held not long enough if it takes more than the timeout
+      time to finish launch
+    
+    The framework sends out a powerhint for both when launch starts and when
+    launch ends. The launch finish hint can be used to signal when to release the
+    perflock.
+    
+    Reference: Wahoo power-libperfmgr
+    
+    Change-Id: I405cc453c5f58d9fb2583b9c6017f3964a0ce024
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fa987c9474e3d3a9558730af0796abf22f0c703b
+Author: Giuseppe Barillari <joe2k01dev@gmail.com>
+Date:   Mon Feb 25 20:34:00 2019 +0100
+
+    sdm710-common: Override stock power HAL service definition
+    
+    The service must be made part of the input group,
+    so that the power HAL can access the input nodes present
+    in the different targets.
+    
+    Change-Id: I30a7bde8aebac4b76cbf59f5f795ea245aba1014
+    Signed-off-by: Giuseppe Barillari <joe2k01dev@gmail.com>
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b12655e6b335dd334ea306264523ef2ae9591779
+Author: Ananth Raghavan Subramanian <sananth@codeaurora.org>
+Date:   Wed Dec 5 12:08:33 2018 -0800
+
+    sdm710-common: power: Clean up code and add generic hint handling
+    
+    Removed unused code and added generic hint handling to power.c file,
+    does not need to be device specific anymore.
+    
+    Change-Id: I0d4e2a73de0ce4d3735314d2e49ba58c23eb313c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d735112eeb0a1043ea13700df293556f1576405b
+Author: Rajashekar Adi <radi@codeaurora.org>
+Date:   Tue Apr 24 15:02:57 2018 +0530
+
+    sdm710-common: power: Fix for VNDK compliance issue
+    
+    VNDK flag enablement for P upgrade
+    
+    Change-Id: I033c3d9c8a1ee1e7f52a6398ae989becd66d161e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5b607c28d56d36c837c889bb2b7b295ec5a7f065
+Author: Vinay Verma <vvinay@codeaurora.org>
+Date:   Sun Apr 29 14:08:30 2018 +0530
+
+    sdm710-common: power: Fix VNDK compilation errors
+    
+    VNDK restrictions doesn't includes standard headers by
+    default, add them explicitly.
+    
+    Change-Id: I4c72a28ffa141ecadcfe47cc7c1f62f2a0c8576e
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit f945859627ff54f5a6136fcf9fa48064c54b785c
+Author: Wei Wang <wvw@google.com>
+Date:   Tue Jun 7 18:44:31 2016 -0700
+
+    sdm710-common: power: Use monotonic time for interaction boost
+    
+    Using the wall clock will cause boosts to be disabled
+    when/if the clock is adjusted backward.
+    
+    Bug: 29191415
+    Bug: 29208304
+    Change-Id: I8af5f40b46d996ce7bccb8324fc186e2f3a5b267
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3d731adb1fc5ea260fee76e357257fbced957e6d
+Author: BeYkeRYkt <beykerykt@gmail.com>
+Date:   Thu Dec 13 06:42:35 2018 +0900
+
+    sdm710-common: power: Handle launch and interaction hints
+    
+     * MP-CTL does not handle POWER_HINT_INTERACTION and POWER_HINT_LAUNCH
+       directly. Requests for processing are sent by Qualcomm BoostFramework
+       (QPerformance) at the framework service level. Since we do not have
+       BoostFramework, process POWER_HINT_INTERACTION and POWER_HINT_LAUNCH
+       in PowerHAL to ensure a sufficient level of performance.
+     * For proper operation, perfboostsconfig.xml file is required.
+    
+    Change-Id: I9fedcbaa189147c91d932711c831c2ce038a7ec7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 58c18cd468e7c578f877afbb0927c4277365ea58
+Author: Steve Kondik <steve@cyngn.com>
+Date:   Mon Oct 19 14:43:39 2015 -0700
+
+    sdm710-common: power: Add support for tap-to-wake feature control
+    
+    Change-Id: I545902b29f4828c127bc32def6e30b67ce4a3aa7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 311ead102a3f18507285ff27647049cb3d5e1489
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Thu Jul 19 23:53:01 2018 +0100
+
+    sdm710-common: Import QCOM power HAL
+    
+    Change-Id: Ia4fe5dd8e0240955b7d2199e3e1d6743138b511d
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 767781bf362bc4f51d2965400464d83db7ef4245
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Nov 30 09:55:11 2019 +0000
+
+    DNM
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit c142b3ca6f924c380dea9e76bcbbe675ab992885
+Author: Wang Han <416810799@qq.com>
+Date:   Sun Nov 10 17:56:43 2019 +0800
+
+    sdm710-common: Enable config_postResetRunnableForAllClients
+    
+     * Without this, fingerprint stops working after using it
+       for the first time.
+    
+    Change-Id: Ibdcdf8f1b5beaf481f2a7a9fd8ad199494161502
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit e0cbbd78b798f830a0cc198146f66550d4880629
+Author: Luca Stefani <luca020400@lineageos.org>
+Date:   Mon Apr 17 17:03:50 2017 +0000
+
+    sdm710-common: Notify client when fp cancelling succeeded
+    
+    Change-Id: I49bb7ef9c46134562da55ac2a1c53363704ed7d6
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9e69d97cd26313538d080dc719e309ddecf36a17
+Author: Ethan Chen <intervigil@gmail.com>
+Date:   Sun Oct 20 01:17:32 2019 -0700
+
+    sdm710-common: Remove dead RCS packages
+    
+    Change-Id: Ie2c03fa11cb08c7ab900d7b666981d592aba19c7
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b86fd1c6fea83ba4cc68643fce50b9134dd3fec5
+Author: Andrew LeCain <alecain@google.com>
+Date:   Mon Dec 3 09:35:43 2018 -0800
+
+    sdm710-common: Adding uhid permissions to default fingerprint rc
+    
+    Test: Sailfish has fingerprint present
+    Bug: 120112580
+    
+    Change-Id: I11c3bf02ddb2102a6d326a35e360e067812b0b75
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6bc03c5391d5071950fc2d02d723375db1345557
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Nov 13 14:48:44 2019 +0000
+
+    sdm710-common: Bind mount vendor.oppo.hardware.biometrics.fingerprint@2.1-service.rc
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5221fa91286007474c53216636d545c2cc20cde4
+Author: Anton Hansson <hansson@google.com>
+Date:   Thu Feb 21 15:04:20 2019 +0000
+
+    sdm710-common: Set cpu "runtime variant" to cortex-a75
+    
+    This makes bionic and various art tools that compile/runs cpu-specific
+    code choose the cortex-a53 variant at runtime. It does not affect
+    build-time compilation.
+    
+    Bug: 120773446
+    Test: bionic benchmarks with and without this change
+    Change-Id: I670c8acd094090135515688c5f057c2cc08a083f
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a91998b82634dd5e3732bf587755f17c832ed7e0
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Thu Nov 8 14:38:09 2018 +0000
+
+    sdm710-common: overlay: Pin the same RenderScript libs as stock
+    
+    Change-Id: I13b087d186b8509bf35130835b89812fee7abc05
+
+commit b14b08ac2422b85d43ab957cd3d35d27380b76b2
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Nov 30 09:01:03 2019 +0000
+
+    sdm710-common: overlay: Update pinner service
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 08575fecb088cee5a52acc1b47cb89d0e58e6e00
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Nov 28 14:56:17 2019 +0000
+
+    sdm710-common: Disable doze for now
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9dcd79999ec07e65098c27ad2671074fbe399feb
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Tue Sep 10 19:02:00 2019 +0200
+
+    sdm710-common: Copy up to date handheld_core_hardware to system
+    
+    * Vendor one is outdated and therefore we lose stuff
+      like secure lockscreen...
+    
+    Change-Id: I458867b3b322ad754b78877209b7f4d8fb78eb38
+
+commit 6d8e8d44264e3ab99a93ccf6267d83f258f1aa19
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Nov 26 09:30:28 2019 +0000
+
+    sdm710-common: Update touchscreen firmware
+    
+     * Fixes touch not working after boot
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b7a56504903540d30bc385f92582b017196f938a
+Author: Sᴀᴍᴀʀ Vɪꜱᴘᴜᴛᴇ <samarvispute121@gmail.com>
+Date:   Tue Nov 19 12:16:02 2019 +0530
+
+    sdm710-common: Remove seclabel for rutilsdaemon
+
+commit 9934de7ac209dd1c2415734a14d90060ba0d4840
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Nov 27 11:48:54 2019 +0000
+
+    sdm710-common: Nuke sepolicy for now
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 4d2f98e365cf42d728259e9fb97d16bcb7956ba6
+Author: Jan Altensen <info@stricted.net>
+Date:   Tue Oct 8 06:03:53 2019 +0200
+
+    sdm710-common: sensors: also import multihal
+    
+    Change-Id: Ife216d32c81e7d9205a2a6651a6729ce9cd70187
+
+commit f0f565130f5487ca403577abe09ed5ced9f5a440
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Oct 12 09:49:25 2019 +0000
+
+    sdm710-common: Drop DPM blobs
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit aeacc5af5ffe7c974a7d6abfd5aa27643fc3c02e
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Mon Sep 16 17:40:51 2019 +0800
+
+    sdm710-common: Create system copy of ims-ext-common and add to classpath
+    
+     * Our ims.apk doesn't load ims-ext-common.jar, and it's moved to /product
+       on 10 where PRODUCT_BOOT_JARS doesn't work.
+     * Create a system copy of the jar and add it to boot classpath to make
+       it loadable from the apk without extra work,
+    
+    Change-Id: Ia530a530bd4469e12500410fc5e8ba393de60b18
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 638cd12002e8848cf1eb7a923412cf89be6efa7e
+Author: Brad Ebinger <breadley@google.com>
+Date:   Mon Mar 11 17:38:38 2019 -0700
+
+    sdm710-common: Enable FEATURE_TELEPHONY_IMS for these devices
+    
+    Bug: 118823723
+    Test: checkbuild
+    Merged-In: I69fd98160e852b371331a7bc169c7c97dd37f011
+    Change-Id: I69fd98160e852b371331a7bc169c7c97dd37f011
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 722e3cdafabf72455af5addfc1fac2cb27ba3bfe
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Sat Sep 14 13:12:12 2019 +0200
+
+    sdm710-common: Update device/qcom/sepolicy include paths
+    
+    Change-Id: I5c242b8db7e92d753d19bf9c42f2394b9e6a0c6a
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 172e69cd0d4ccf4e8341afb5855d033a997279ad
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Mon Sep 9 21:49:32 2019 +0200
+
+    sdm710-common: Make SELinux great again!
+    
+    Change-Id: Id479e031b584b24f79377aa244add20903a42b02
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b0c49080c72519f0cf1132a275cfb7c298b22717
+Author: Nicolas Geoffray <ngeoffray@google.com>
+Date:   Wed Feb 20 15:31:56 2019 +0000
+
+    sdm710-common: Add a new list of pinned file for the JIT in zygote experiment.
+    
+    Bug: 119800099
+    Test: adb shell dumpsys pinner
+    Change-Id: I44596d11f7444551a9898373a068556d49a1a4e6
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit ca10dd1e9dd33d64956ccfec0208eae84488b77b
+Author: Nicolas Geoffray <ngeoffray@google.com>
+Date:   Mon Feb 11 10:42:45 2019 +0000
+
+    sdm710-common: Adjust pinned files following runtime module work.
+    
+    Test: adb shell dumpsys pinner
+    Bug: 119868597
+    Change-Id: I83c709accb32d0f2c341179dbc5dcd6d7ec75d8a
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 9414a0fa4e833ed1fb831daaa962f684c49ec3e6
+Author: Jiyong Park <jiyong@google.com>
+Date:   Mon Apr 15 14:19:03 2019 +0900
+
+    sdm710-common: Add updatable_apex.mk
+    
+    The product abstracts configs that need to be set to support updating of APEXes.
+    
+    Change-Id: Id5aa944ceba6a6846308f1c18a08af8b3bb38589
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit def6db396f538f9d516915649630b80fc8821be7
+Author: Nicolas Geoffray <ngeoffray@google.com>
+Date:   Fri Feb 22 15:38:22 2019 +0000
+
+    sdm710-common: Generate the apex image.
+    
+    Change-Id: I18a76766590db27a4c32534dc948f55f78da166c
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit d2e539a606e40ccd5494561320b760314af3a5a1
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Tue Sep 10 03:24:44 2019 +0200
+
+    sdm710-common: Copy Android P VNDK blobs
+    
+    Change-Id: I4f2f48ca4810247b2b951de27b82da0769f7d1b1
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 35020fa9426faedf6b51f29e60962c598e600d31
+Author: Anton Hansson <hansson@google.com>
+Date:   Fri Feb 8 17:56:34 2019 +0000
+
+    sdm710-common: Use generic arch variant
+    
+    Follow blueline which has not demonstrated any regressions
+    after switching to a generic arch variant.
+    
+    Bug: 120773446
+    Test: make
+    Change-Id: I9e23963fcfa5ccaa912f2930a632458c4d2a692d
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 05d36b9b1e5ddc28f2e75c2cdefcd1c2235cee5a
+Author: rajatgupta1998 <rajatgupta1998@acm.org>
+Date:   Wed Oct 2 20:37:34 2019 +0530
+
+    sdm710-common: remove TARGET_USES_HWC2 flag
+    
+     * Enabled by default on P
+     * https://android.googlesource.com/platform/frameworks/native/+/d265c4238699ea899cc3b01cc90b643d9692db2a
+
+commit 28ab6b40c07db05b4c4d5d54ee2308cbc9cf6a5a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Oct 12 09:27:08 2019 +0000
+
+    sdm710-common: Enable inline kernel building
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 054d67fa117a9fddf7b9c6a42234ad3756656d82
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Tue Oct 8 17:01:21 2019 +0530
+
+    sdm710-common: Rename init.target.rc to init.qcom.rc
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 8f49fac150707de334a9157e001175a1886f15f9
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Oct 7 22:56:00 2019 +0530
+
+    Revert "sdm710-common: Import fp blobs"
+    
+    This reverts commit c6e26c80441f47ce9d726da8a58e1198235ae64d.
+
+commit eea0908f5fb77bcfddd039b24dc32a7dd273ed41
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Oct 7 22:55:11 2019 +0530
+
+    Revert "sdm710-common: android.hardware.biometrics.fingerprint >> vendor.oppo.hardware.biometrics.fingerprint"
+    
+    This reverts commit a1db24fe8f531062b0cef38771dbb184e19903b8.
+
+commit 01d35d0c98e173f3035051aa6e23c1d8fa0f3090
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Oct 7 22:54:39 2019 +0530
+
+    Revert "sdm710-common: Add QC location support"
+    
+    This reverts commit 85cf815a7113486ac60d0a805fede0d2e1007076.
+
+commit 8b29969b034f8e763ae14d132178b8396a2a3b71
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Fri Oct 4 10:35:02 2019 +0000
+
+    sdm710-common: Copy proximity and light sensor permissions to system
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 89867cb9a56852b961ca15335aced1dfdc8fa936
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Mon Oct 7 22:38:28 2019 +0530
+
+    sdm710-common: Build oppo fingerprint hal
+
+commit 22c90c7e61406b7aec3f9cf626e1a5ce02c48ede
+Author: Erfan Abdi <erfangplus@gmail.com>
+Date:   Thu Sep 26 19:40:20 2019 +0330
+
+    sdm710-common: Write Fingerprint HAL Adapter
+    
+    vendor.oppo.hardware.biometrics.fingerprint@2.1 -> android.hardware.biometrics.fingerprint@2.1
+    
+    Change-Id: Id33db73425bb5e92ef5c45e2f8d40fa462942af3
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 1e86d239bcbb32e060e413d0cd1ddecaef037284
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Fri Oct 4 16:16:16 2019 +0000
+
+    sdm710-common: Import oppo fingerprint hal
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 46702f925d1a9f5af9ddc676adb644fa28b05620
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Mon Oct 7 16:25:56 2019 +0000
+
+    sdm710-common: Set HBM on fp press
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 8fbdb829a257902431090cc23c5502f688ba5e63
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Fri Oct 4 13:46:25 2019 +0000
+
+    sdm710-common: Fix proximity and light sensors
+    
+    * replace proprietary sensor types with standard ones
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 593b28605fac4171ba79051ecd469e8609138b98
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Fri Oct 4 13:42:31 2019 +0000
+
+    sdm710-common: Import sensors impl
+    
+    * as it is from hardware/interfaces
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 742d715a2fef4aa7eed1605df0b0ad3003da867d
+Author: SagarMakhar <sagarmakhar@gmail.com>
+Date:   Fri Oct 4 13:37:55 2019 +0000
+
+    sdm710-common: fod: Adapt for Realme X
+    
+    Icon location :
+             From stock rom logcat :
+                      I android.hardware.biometrics.fingerprint@2.1-service: SDM710P set goodix iconlocation to 273 (pixel:540 2035) (all: 1080 2340), iconsize to 196
+    
+             x = 540 - 196/2 = 442
+             y = 2035 - 196/4 = 1986
+             size = 196
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit ff80ac595afba5bdc33680162a145bc6340f543e
+Author: Peter Cai <peter@typeblog.net>
+Date:   Fri Oct 4 13:31:32 2019 +0000
+
+    sdm710-common: Implement fod hal
+    
+    * also set fp sensor location overlay
+    
+    Signed-off-by: SagarMakhar <sagarmakhar@gmail.com>
+
+commit 5bc5545a4d7f43114c6e6191d071fa2e16aa112a
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Oct 7 17:57:45 2019 +0530
+
+    sdm710-common: Fix extraction scripts
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 5f311e6a7f09af8e320693d040ab3a0e99cbb69b
+Author: Jan Altensen <info@stricted.net>
+Date:   Fri Oct 4 05:08:20 2019 +0200
+
+    sdm710-common: camera_motor: dont calibrate
+    
+     * we have no calibration data available and our "defaults" are wrong
+    
+    Change-Id: I6c5eabc90a7d62b68aa5895a56c5aee1caaa4c04
+
+commit 8ccb6900799482b630a21ec4dcb59c81c088cb5e
+Author: Jan Altensen <info@stricted.net>
+Date:   Thu Oct 3 18:36:49 2019 +0200
+
+    sdm710-common: camera_motor: handle mid position state
+    
+    * oppo_motor gets initialized with position in "MID_STATE"
+    
+    Change-Id: I5bbe50b20910f9ea9950caa081577c7216ed8b06
+
+commit 7450d7c4a3cd327a3092ff8eb51d64b2a856b8dc
+Author: Jan Altensen <info@stricted.net>
+Date:   Thu Oct 3 18:35:54 2019 +0200
+
+    sdm710-common: kang camera motor from guacamole
+    
+    Change-Id: Ic4dfc1b7d3716d2154be1364aa93400be2a116ff
+
+commit aa30d9e5071661a480cd6d074c77d1631ed3639a
+Author: Wang Han <416810799@qq.com>
+Date:   Tue Sep 3 21:03:54 2019 +0800
+
+    sdm710-common: Clean up fw/b overlay
+    
+    Change-Id: Ifa2f7a3f914046b19c792cf7fe5491c72cd81a15
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit fb49adb1014d5fd4bebb5a41dc93ad84ad93e37d
+Author: Wang Han <416810799@qq.com>
+Date:   Tue Aug 20 12:54:49 2019 +0800
+
+    sdm710-common: overlay: Remove config_tether_upstream_automatic
+    
+     * Enabled globally.
+    
+    Change-Id: Iee60a13ecd1f63a31b930e348ea2c4522f917b50
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3219f4ff7e47249c2ece9c4535fc1cc2df6e35f0
+Author: Ashwin Ramesh <ashwinr64@lineageos.org>
+Date:   Tue Aug 1 14:24:42 2017 +0530
+
+    sdm710-common: Add update-sha1sums.sh
+    
+    * also update sha1sums
+    Change-Id: I3e0e2806770551cde06f53f25f10884c45fa64c5
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit b28baea1c55bfd50e0e140624193b5c20078d3ba
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Sep 26 01:26:36 2019 +0000
+
+    sdm710-common: Move props to /system/etc/prop.default
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 6f4ccf4ffb3003e8bde4933b773e78f605ddd0b5
+Author: GuaiYiHu <guaiyihu@foxmail.com>
+Date:   Thu May 30 10:41:56 2019 +0800
+
+    sdm710-common: Update blobs from davinci
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit a9812daf8b60c6b94bd9164c8bb4ddd16c410b65
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Sep 21 18:29:26 2019 +0000
+
+    sdm710-common: Decommonize system partition size
+
+commit dfdfc499737fa15f4d6c7680c8f241d270c4df3e
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Fri Sep 20 16:36:42 2019 +0000
+
+    sdm710-common: Cleanup
+
+commit b4eff72fe719a352d011ba70cf98880577ad64ba
+Author: luk1337 <priv.luk@gmail.com>
+Date:   Wed Apr 3 14:09:27 2019 +0000
+
+    sdm710-common: Load A2DP configuration from a2dp_audio_policy_configuration.xml
+    
+    * CAF configuration doesn't really work for us.
+
+commit 44ad53081b1dca2e24285ab0e29ccc223772f6a9
+Author: bgcngm <bgcngm@gmail.com>
+Date:   Wed Apr 3 14:05:43 2019 +0000
+
+    sdm710-common: Import and bind mount stock custom audio policy config
+    
+     * The purpose is to apply the same BT A2DP fix that used to be
+       applied in the individual device trees.
+
+commit 32b2b0193b321c0634733db739be90bcc8b65a8d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Sep 26 01:13:38 2019 +0000
+
+    sdm710-common: Add some system props
+
+commit ed958c77120ce0075c7989c30527c62c7e6d7500
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Sep 9 15:46:50 2019 +0000
+
+    sdm710-common: camera_motor: Update for RMX1901
+    
+    Co-authored-by: luk1337 <priv.luk@gmail.com>
+    Co-authored-by: PeterCxy <peter@typeblog.net>
+
+commit fd9829737da8f601da4b8171ae0cd4b6a7536959
+Author: luca020400 <luca.stefani.ge1@gmail.com>
+Date:   Mon Sep 17 00:00:00 2001 +0000
+
+    sdm710-common: Import stub camera motor HAL
+
+commit 6e3a415bd5baaf77e04fbdd81b7018a4193790ac
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Sep 15 12:24:04 2019 +0000
+
+    sdm710-common: Build snap
+    
+    * Also add its overlay with camera2api enabled
+
+commit 978febd2902e7d42d95719126b4c3863c07aa35a
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Mon Sep 9 16:52:33 2019 +0200
+
+    sdm710-common: Move soong namespaces to device.mk
+    
+    * This is a product property
+    
+    Change-Id: I411428687839fca7c794d488bb48e5f1773e570b
+
+commit 5ddb403eb0f7d8c39e8b15b3a8e948339c8f89a6
+Author: Ethan Chen <intervigil@gmail.com>
+Date:   Tue Oct 2 13:51:03 2018 +0200
+
+    sdm710-common: Use Soong namespace to avoid device build conflicts
+    
+    Change-Id: Id04f464102264b6f2e8d49b39389c7e346613b39
+
+commit 85cf815a7113486ac60d0a805fede0d2e1007076
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Wed Jul 24 20:27:35 2019 +0200
+
+    sdm710-common: Add QC location support
+    
+    Change-Id: If363679650179a0a7fad7b01055760b49caf26ca
+
+commit a1db24fe8f531062b0cef38771dbb184e19903b8
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Sep 11 10:46:45 2019 +0000
+
+    sdm710-common: android.hardware.biometrics.fingerprint >> vendor.oppo.hardware.biometrics.fingerprint
+
+commit f0e9dfe754c66aa3422d588327e9ffba32693637
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Sep 11 10:43:49 2019 +0000
+
+    sdm710-common: Copy fingerprint permission
+
+commit c6e26c80441f47ce9d726da8a58e1198235ae64d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sat Sep 14 06:23:18 2019 +0000
+
+    sdm710-common: Import fp blobs
+
+commit f7e8710bff6f53cdd1f51c48c0709574ae8a5c6d
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Sep 9 14:49:14 2019 +0000
+
+    sdm710-common: Define AtFwd and wifi keystore hal in framework manifest
+
+commit 564638cf0bdbee3cb34456b6730a0059312de407
+Author: Artem Borisov <dedsa2002@gmail.com>
+Date:   Mon Dec 24 15:25:51 2018 +0400
+
+    sdm710-common: Add QCOM's WFD implementation
+    
+    * Sadly, out-of-the-box Miracast support was killed in P, so
+      we need this to keep Wi-Fi display feature working.
+    
+    Change-Id: Ieff24313d55a60ca1898430113f0a8b00acfc6a0
+
+commit 4c9f2c5188326a1c9c446a970facd3c84c344ebd
+Author: jrizzoli <joey@lineageos.org>
+Date:   Wed Jan 9 22:24:07 2019 +0100
+
+    sdm710-common: Build Trust HAL
+
+commit b77e83d232f23d7d3297d7038e844d3344026579
+Author: GuaiYiHu <guaiyihu@foxmail.com>
+Date:   Thu Aug 29 10:13:26 2019 +0000
+
+    sdm710-common: Fix a2dp
+
+commit 3e5e42415fcccfdd023292562a4b29ecc61ba6c2
+Author: luca020400 <luca.stefani.ge1@gmail.com>
+Date:   Thu Aug 29 10:10:20 2019 +0000
+
+    sdm710-common: sepolicy: Address neverallows
+
+commit d315f0857594072201b8017388af416964886461
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Tue Jul 9 22:31:00 2019 +0100
+
+    sdm710-common: Doze: Migrate to androidx
+    
+    Change-Id: Ifaa67283a3437549a2304088a0ce377b399da19f
+
+commit 673e03d926905b7bcad87c84b928b336e40bb68d
+Author: Joey <joey@lineageos.org>
+Date:   Fri Dec 28 11:33:30 2018 +0100
+
+    doze: Match Pie settings UI
+    
+    Change-Id: Ia1cde37923c55faf057189f7085b69522e2802ef
+
+commit 56a25429aae06e924fb67dd9b8409bc073c6f2da
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Sep 16 00:04:07 2018 +0100
+
+    Doze: Drop useless SDK dependency
+    
+    Change-Id: I74901339740b82b79f36754c7e52894a98020c3d
+
+commit d818ef2488314924faa1d87a2d337e3d7cd76aa3
+Author: Anton Hansson <hansson@google.com>
+Date:   Wed Feb 21 14:11:44 2018 +0000
+
+    doze: Set LOCAL_PRIVATE_PLATFORM_APIS
+    
+    This change sets LOCAL_SDK_VERSION for all packages where
+    this is possible without breaking the build, and
+    LOCAL_PRIVATE_PLATFORM_APIS := true otherwise.
+    
+    Setting one of these two will be made required soon, and this
+    is a change in preparation for that. Not setting LOCAL_SDK_VERSION
+    makes the app implicitly depend on the bootclasspath, which is
+    often not required. This change effectively makes depending on
+    private apis opt-in rather than opt-out.
+    
+    Bug: 73535841
+    Change-Id: I61299717ab2a6a1fd9a14dde7e1c7961388f722a
+
+commit e817d534a0cbaacab60e134582ba5eb3a55f685e
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Sep 16 00:53:38 2018 +0100
+
+     Doze: Add missing preference listeners
+    
+     * Otherwise, it resulted in Doze service not being activated
+       when enabling one of the features for the first time after
+       a clean installation.
+    
+    Change-Id: I625d9109fb85c970f0e59b1cbcabba7d4375d2f3
+
+commit 764f507c35448f504b6d10990e1988e0b92260b3
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Fri Jul 13 14:38:39 2018 +0200
+
+    Doze: Make use of real pickup sensor
+    
+     * Use it for the pickup feature instead of the tilt sensor
+    
+    Change-Id: I6172154e0cb0278fc0b7dc31d612f5e8ac619d90
+
+commit be68fd6e75cd4f22b2bee6e596fd14b6b028ae7a
+Author: ezio84 <brabus84@gmail.com>
+Date:   Thu Jun 14 15:00:19 2018 +0200
+
+    sdm710-common: doze: use ExecutorService for listener registration
+    
+    Replicate what Google did for SystemUI in this commit.
+    https://github.com/aosp-mirror/platform_frameworks_base/commit/fabc743bcf6e6623e530545c4b31285ea642f087
+    
+    Registering a sensor seems to be an expensive operation,
+    and we do it on each screen-on event, so moving it to
+    an asynchronous task looks like a good idea anyway.
+    
+    By moving all non-essential binder calls of the main thread or to the
+    next frame, we bring this down to 5ms, such that window animation
+    and Keyguard animation starts about at the same time.
+    
+    The interesting part about the ExecutorService:
+    "Memory consistency effects: Actions in a thread prior to the submission
+    of a Runnable or Callable task to an ExecutorService happen-before any
+    actions taken by that task, which in turn happen-before the result is
+    retrieved via Future.get()."
+    (from https://developer.android.com/reference/java/util/concurrent/ExecutorService)
+    
+    Change-Id: I4f37bb9a7dc9d7775d587d4ebd4b6619f3b77e81
+
+commit 2f05326436e02e1c3db7e12fa60155fb1d876cec
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Apr 8 15:18:44 2018 +0100
+
+    sdm710-common: Doze: Minor code simplification and clean up
+    
+    Change-Id: Idff05f2626138c96dccd3ab4c26c4df1be40a606
+
+commit a7e74415e0656c351089b9c53792887616baeb91
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Oct 8 10:33:36 2017 +0100
+
+    sdm710-common: Doze: Build with AAPT2
+    
+    Change-Id: Iab14804817e6b90bf4d773d9359a04f1e119264a
+
+commit f0d2246d2721d1cde00f7270421743622baef284
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Oct 8 10:27:47 2017 +0100
+
+    sdm710-common: Doze: Re-integrate into Settings
+    
+     * Apply the default Oreo theme and inherit the layouts
+       from Google for the Settings app, in order to keep
+       UI consistency.
+    
+     * Get rid of SettingsDrawerActivity as it no longer fits in
+       and include the back button in the action bar.
+    
+     * Kill the icon drawable not only because is a leftover,
+       but also doesn't really serve any puropose in the new UI.
+    
+    Change-Id: I53b6d3bb99d63852ba34d71e16ae99f05223569e
+
+commit 1dcb684eea0f949d79b544c90848fd3b686b0d3f
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Sun Oct 8 10:20:53 2017 +0100
+
+    sdm710-common: Doze: Apply LineageOS rebrand
+    
+    Change-Id: I4daa1092494fdf207ef54dc79f787bcbe1d01a08
+
+commit ea1e874137082cce57ff4d6c8130560b7416b638
+Author: Álvaro Brey <alvaro.brv@gmail.com>
+Date:   Sat Dec 2 13:28:09 2017 +0100
+
+    modules: doze: Fix devicesettings path
+    
+    * Was broken when moved to modules, since it iss a relative path
+    Change-Id: I7d934e7cfeccdc4bcaaf917de1316e81b34ae220
+
+commit 91d1679e81141536c387ce9bb61adb7ce808794a
+Author: xiaobai <fengz181x@126.com>
+Date:   Sat Sep 9 22:26:17 2017 +0800
+
+    sdm710-common: import doze from mi5
+
+commit 7456bdd6a380fa032fe407a237f558acf7a0440b
+Author: Marc K <morckx@gmail.com>
+Date:   Tue Mar 12 14:04:14 2019 +0100
+
+    sdm710-common: Enable proximity check on wake
+    
+    Change-Id: I6506408447b15464238a2eefd98306efbaffbd84
+
+commit 8e05b6be7a95d26f5c1c9ccb19f56a07db17ddb0
+Author: haran <harangovindan@gmail.com>
+Date:   Sun Apr 7 22:56:08 2019 +0200
+
+    sdm710-common: Remove some overlays that are default
+    
+    Change-Id: I2340316577c4b56604125f9007161e2ac5b3241c
+
+commit 9fe48b1c2ebcb0151c86610d71e3a1585cb3167e
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Sun Jul 15 17:30:36 2018 +0200
+
+    sdm710-common: Set default clock position to left
+    
+    Change-Id: I2b597579851434972cd29510ff90dfa8ddc6564f
+
+commit 83d2143ddcf4e2ab8608eb1a393c09b4c9f197aa
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Wed Jan 16 19:07:49 2019 +0800
+
+    sdm710-common: Wait for MPCTL to start on boot
+    
+    Change-Id: Ib79b48e1d362872d9d97373d5ca2ad42f7fbc638
+
+commit 014e1c63504832caaab0928801c48526c3c42eee
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Mon Apr 30 23:02:55 2018 -0700
+
+    sdm710-common: overlay-lineage: enable option for full screen aspect ratio
+    
+    Change-Id: Ibf0bfabd06d704e220c8a74b60e6a822fa39dcf4
+
+commit fdc1adae3521686719b10d4b943555b93a191974
+Author: Danny Baumann <dannybaumann@web.de>
+Date:   Wed Jul 18 17:25:32 2018 +0200
+
+    sdm710-common: overlay-lineage: Enable call recording
+    
+    Change-Id: I1b4478b330b13cf5d0fe1ed0d40f43e4b3825f33
+
+commit c14f0a53cf3f05f29011c813fab26bb5be49c186
+Author: invisiblek <dan.pasanen@gmail.com>
+Date:   Sun Mar 24 09:02:35 2019 +0000
+
+    sdm710-common: Configure custom led capabilities
+
+commit 62041ac3d9976cc16cf275247e5a39824b0c2c09
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Sun Mar 24 08:58:00 2019 +0000
+
+    sdm710-common: Add hardware keys overlays
+
+commit 40221b1b1cd68aca78e9180560fbb79455b2d62a
+Author: raymanfx <raymanfx@gmail.com>
+Date:   Sat Mar 23 09:17:14 2019 +0000
+
+    sdm710-common: Fix platform signature
+    
+    * Taken from /system/etc/selinux/plat_mac_permissions.xml
+    
+    Signed-off-by: SamarV-121 <samarvispute121@gmail.com>
+
+commit 3b4402cd404929dd4a423d7cf936b5ab6c29c08e
+Author: Wang Han <416810799@qq.com>
+Date:   Sun Sep 16 12:51:03 2018 +0800
+
+    sdm710-common: Configure number of physical SIM slots
+    
+     * Needed by telephony-common
+    
+    Change-Id: I18c058d295ed2eaf23e8ca5d1f3933b65806ed48
+
+commit d731f1129a1519a7cdcdb61056ae77c9d51a1cf5
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Wed Nov 28 21:46:20 2018 +0000
+
+    sdm710-common: Beautify rounded corners
+    
+    Change-Id: Ifb3ff156eca7a02daec82138aee449b121c071eb
+
+commit 774aa87672490cf1ff03f2c6ca31ee07184d5c5b
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Fri Feb 1 19:43:37 2019 +0100
+
+    sdm710-common: overlay: Use 16dp rounded corner padding
+    
+    Change-Id: I9f81f684d491ed447b7bdb2ca70f558bf75ebc67
+
+commit 95cabe41338a4be85e211a0cae0e14bc680fd5fc
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Jun 19 00:11:15 2019 +0000
+
+    sdm710-common: Add notch cutout config
+
+commit d281417bad76238fd39700f1056fbd00389629ff
+Author: Erik Kline <ek@google.com>
+Date:   Sat Jun 16 21:10:19 2018 +0900
+
+    sdm710-common: Use tether automatic upstream selection
+    
+    (config_tether_upstream_automatic=true)
+    
+    Test: as follows
+        - built, flashed, booted
+    Bug: 32163131
+    Bug: 62648872
+    Bug: 63282480
+    Bug: 110118584
+    Bug: 110260419
+    
+    Change-Id: I604cda53d6d37a33de3e3ccc65c0da781d21278b
+
+commit 4cb4078b40c2d28e164a123e4474ac33fd09212d
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Wed Jan 9 21:18:28 2019 +0800
+
+    sdm710-common: sepolicy: Allow system_server to read vendor camera props
+    
+    Change-Id: I43a2404d9399a931b03e1d2c8589d0d4adb10fc3
+
+commit 8543dadc2593e28595c65afa9af969d38f0faadb
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Thu Sep 13 10:08:48 2018 +0200
+
+    sdm710-common: Allow appdomain to get vendor_camera_prop
+    
+    * Some apps rely on this and won't work properly if they
+      can't read this property. See ~ Snapchat.
+    
+    Change-Id: I737e28f038941e6d18b96ff512f29dbe0ad7b7e4
+
+commit 0f3fa494fb66aeb5a5bbb152de15d38cadd21da2
+Author: Pranav Vashi <neobuddy89@gmail.com>
+Date:   Sun Apr 21 03:49:37 2019 +0530
+
+    sdm710-common: Enable Wi-Fi MAC randomization
+    
+    Change-Id: Ibcabf871f0e35a6f81905392f749478f96b3c47d
+
+commit ebb248df7f184d9086c3e224d04da1db8ede2efb
+Author: Dan Pasanen <dan.pasanen@gmail.com>
+Date:   Wed May 3 10:00:22 2017 -0500
+
+    sdm710-common: set ui thread runnable time to zero
+    
+    * https://source.android.com/devices/tech/debug/jank_jitter#sys.use_fifo_ui
+    
+    Change-Id: Idc7723e14b3e3920d5736589dcf44e5525d10518
+    Signed-off-by: Joe Maples <joe@frap129.org>
+
+commit 3dc9353e201cb3e5e854a0fce74df89869019cca
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Sat Feb 2 19:34:23 2019 +0100
+
+    sdm710-common: Add debug IMS props to workaround CarrierConfig restrictions
+    
+    We support IMS features on carriers not listed in the CarrierConfig,
+    so let's use the props to enable it everywhere.
+    
+    Change-Id: Id3ad71d522a22048f7ad86d89695ad262361632d
+
+commit fb7306640bc38336181b86ff59269789a37a9873
+Author: Jean-Michel Trivi <jmtrivi@google.com>
+Date:   Thu Jun 22 19:20:26 2017 -0700
+
+    sdm710-common: Media volume: from 15 to 25 steps
+    
+    Test: play media, use all 25 vol steps and observe varying attenuation
+    Bug: 32195657
+    Change-Id: I7ac87df0b2b15de3a7bb87e739bd88ef7b185236
+
+commit b820fcc369bea5467a2be5a35742d23015491b02
+Author: rago <rago@google.com>
+Date:   Fri Jul 1 16:05:00 2016 -0700
+
+    sdm710-common: Set voice call volume steps to 7
+    
+    Bug: 28426597
+    Change-Id: Icf78d9acec75c500982b1e4391af4d6f3933da37
+
+commit 2cae618f55126338304268c8f1b0695f5f922a61
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Wed Jul 10 15:14:13 2019 +0000
+
+    sdm710-common: Add some system props from stock
+
+commit 9734d3aed8d585c723f0212412e16e5521f9fa84
+Author: Pengfei Xiao <pengfeix@codeaurora.org>
+Date:   Tue Jun 4 18:04:27 2019 +0800
+
+    sdm710-common: IMS: Enable config_enable_video_crbt for more mnc/mcc
+    
+    - Enable config_enable_video_crbt for mnc/mcc 204/04
+    460/01/03/05/06/09/11/12
+    
+    Change-Id: I966c014460297eb8fb5ea15d834a00099837b49d
+    CRs-Fixed: 2464898
+
+commit 51b265a622d54e4dc3e2ce7518623b44a766e5dc
+Author: GuaiYiHu <guaiyihu@foxmail.com>
+Date:   Thu May 30 10:41:56 2019 +0800
+
+    sdm710-common: Import CarrierConfig overlay
+    
+    * https://github.com/GuaiYiHu/android_device_xiaomi_violet/commit/9b063f8dec0507f3fb0aad5562b55cc2b6f75c2f
+
+commit e62acbf8416b5753a6bbbfcbefdd57b06640a97b
+Author: GuaiYiHu <guaiyihu@foxmail.com>
+Date:   Wed Apr 17 15:44:37 2019 +0800
+
+    sdm710-common: Configurate overlay for bluetooth
+    
+    Change-Id: I5206156f1a95be97c65511cba3d77a3abf9cde18
+
+commit 17477faa1e55cbc23c5e6a292c051445b70d9ae3
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Mon Jul 8 10:51:00 2019 +0000
+
+    sdm710-common: Import fw/base overlays and power_profile from stock
+
+commit 44fc9b6b6170b7d90d5ffd1a5795614d4cf14023
+Author: luca020400 <luca.stefani.ge1@gmail.com>
+Date:   Sat Apr 27 01:41:13 2019 -0400
+
+    sdm710-common: lights: update service entry for pie
+
+commit f8f10ac731fae5c1c84b795ddd2c7da11bb3c850
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Tue Jul 10 00:18:09 2018 +0100
+
+    sdm710-common: Add a custom lights HAL
+    
+     * This overrides stock liblights and fixes LCD backlight issues.
+     * Also fix lights HAL denials
+    
+    Change-Id: Iafa2ba2338932879b7a1dc480b50559e3328fd21
+
+commit 887fe8faf14f38546082e8b9590248706eec2649
+Author: Garik Badalyan <garikb@codeaurora.org>
+Date:   Tue Jul 17 16:48:29 2018 -0700
+
+    sdm710-common: IMS: Whitelist org.codeaurora.ims package
+    
+    org.codeaurora.ims has become a priv-app
+    to acquire some permissions we need to
+    whitelist the package.
+    
+    Change-Id: I3f31f949e054cc79f8cff99e66cbcb70f5f0715f
+
+commit f57563fa4a8d65e8085bc5248fa80446b37319c1
+Author: Devi Sandeep Endluri V V <dendluri@codeaurora.org>
+Date:   Mon Oct 30 10:24:53 2017 +0530
+
+    sdm710-common: Add priv-app permissions to whitelist.
+    
+    Added priv-app to whitelist so as to provide priv app permissions.
+    
+    CRs-Fixed: 2131551
+    Change-Id: I0f2446e1946cdd7cf8b1641a46818317acfaefdd
+
+commit dfef1ff2679332858f33bcf79129a3cbc9f27394
+Author: Garik Badalyan <garikb@codeaurora.org>
+Date:   Wed Apr 18 17:27:43 2018 -0700
+
+    sdm710-common: White-list telephony modules.
+    
+    Some telephony modules require access to
+    platform APIs, i.e. @hide, and hence need
+    to be white-listed. This change white lists
+    these packages.
+    
+    Change-Id: I1dfd9478b59f52350e4e7ecfdb2b80f1178cfd9c
+    CRs-Fixed: 2219897
+
+commit 285ae282b37ee60a6702bb9a8ecd2e8192297198
+Author: Bruno Martins <bgcngm@gmail.com>
+Date:   Tue Jun 19 23:55:25 2018 +0100
+
+    sdm710-common: Fix typo from CodeAurora in the QTI whitelist
+    
+     * Let com.qualcomm.qcrilmsgtunnel break free
+    
+    Change-Id: I6243a6d21da7709bf6612270d7638f1231b9f601
+
+commit 8c9cc6216975b7b1869dcb0e9c5df1f6b43e01f0
+Author: Wileen Chiu <wileenc@codeaurora.org>
+Date:   Wed May 10 12:15:42 2017 -0700
+
+    sdm710-common: Remove datastatusnotification from whitelisting
+    
+    - remove com.qti.qualcomm.datastatusnotification
+    from the whitelisting list
+    
+    Change-Id: I59437b2542e9fbf68688e225b2e886937eda4e21
+
+commit 0bdd7f8fbf270a4f10e401b6890dca7766f3912c
+Author: Sukanya Rajkhowa <srajkh@codeaurora.org>
+Date:   Mon Apr 17 14:03:48 2017 -0700
+
+    sdm710-common: Remove EmbmsService from whitelist services
+    
+    EmbmsService will start only when a client binds to it
+    
+    CRs-Fixed: 2035310
+    
+    Change-Id: I237cbd3868730d30d58b4ce971bd9d8d1d68b46c
+
+commit 762b7c90db6f084f9a9a6a89882056ab0f6c9025
+Author: Ruthwar Kumar Ambeer <ruthwar@codeaurora.org>
+Date:   Mon Apr 10 15:41:38 2017 +0530
+
+    sdm710-common: Add background atel services in whitelist
+    
+    telephony services are white-listed who all need
+    to freely run in the background. This is temporary
+    work-around and some of the services will be
+    removed from the list based on the feasibility.
+    
+    Change-Id: Ice11429b5b78d5786dc701251b507b7dac5745ee
+
+commit 4c2177841edfdf0cfd2fbd96195e8e48863599e9
+Author: Demon Singur <demonsingur@gmail.com>
+Date:   Sat Jun 23 05:22:18 2018 +0000
+
+    sdm710-common: Build separate system and vendor HIDL libs
+    
+    Change-Id: If8e2211e643bdb0ff67fb248e7fe33b78077a06e
+
+commit a3f33d8e73d18e74f6ca070492b440bdd79a7473
+Author: dianlujitao <dianlujitao@lineageos.org>
+Date:   Thu Dec 7 22:15:14 2017 +0800
+
+    sdm710-common: Build dummy android.hidl.[base,manager]@1.0
+    
+    Change-Id: I81a081130869c4d92f30b2674e75bb6b096a7a2c
+
+commit 9d212ba3f54dbdc3b0df6b0e15cee2519688146b
+Author: SamarV-121 <samarvispute121@gmail.com>
+Date:   Thu Aug 29 09:37:42 2019 +0000
+
+    Init trees
 ########################################
