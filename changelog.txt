@@ -1,6 +1,26 @@
 
 ########################################
 device/lenovo/jd2019 Changes:
+commit faca1b22ee3c2d705d6f03c80559024570018bcd
+Author: Palakurthi Sreekanth <palakurthisreekanth995@gmail.com>
+Date:   Sun Mar 21 15:42:32 2021 +0100
+
+    jd2019: grant permissions for carrier settings
+    
+    java.lang.IllegalStateException: Signature|privileged permissions not in privapp-permissions whitelist: {com.google.android.carrier (/product/priv-app/CarrierSettings): android.permission.WRITE_APN_SETTINGS, com.google.android.carrier (/product/priv-app/CarrierSettings): android.permission.CHANGE_COMPONENT_ENABLED_STATE, com.google.android.carrier (/product/priv-app/CarrierSettings): android.permission.INTERACT_ACROSS_USERS, com.google.android.carrier (/product/priv-app/CarrierSettings): android.permission.MODIFY_PHONE_STATE, com.google.android.carrier (/product/priv-app/CarrierSettings): android.permission.READ_PRIVILEGED_PHONE_STATE, com.google.android.carrier (/product/priv-app/CarrierSettings): com.android.permission.INSTALL_EXISTING_PACKAGES}
+
+commit ad64e942ea2db1b59d798a3edd5b72ad06e892fd
+Author: CakesTwix <oleg.kiryazov@gmail.com>
+Date:   Thu May 6 17:07:54 2021 +0300
+
+    jd2019: Welcome Project Sakura
+
+commit ac543aac4dc05b8737fd86b590916fb8ca8de194
+Author: TheScarastic <warabhishek@gmail.com>
+Date:   Thu Jan 28 09:45:53 2021 +0100
+
+    jd2019: Restore LiveDisplay compatibility
+
 commit b58f9a4461a93e861d860465cceaf9911ae1b41a
 Author: ashuk1109 <ashutoshkarwa123@gmail.com>
 Date:   Tue Apr 13 08:22:03 2021 +0000
