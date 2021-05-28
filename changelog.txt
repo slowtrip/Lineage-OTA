@@ -1,6 +1,6 @@
 
 ########################################
-device/lenovo/jd2019 Changes:
+device/realme/RMX2061 Changes:
 commit faca1b22ee3c2d705d6f03c80559024570018bcd
 Author: Palakurthi Sreekanth <palakurthisreekanth995@gmail.com>
 Date:   Sun Mar 21 15:42:32 2021 +0100
