@@ -1,12 +1,12 @@
 {
   "response": [
     {
-      "datetime": "1622718024",
+      "datetime": 1622718024,
       "filename": "lineage-17.1-20210602-UNOFFICIAL-RMX2061.zip",
       "id": "5c3c31f7a351a53532086fea9318f6ef",
-      "romtype": "UNOFFICIAL",
-      "size": "1335584568",
-      "url":"https://github.com/slowtrip/Lineage-OTA/releases/download/RMX2061-20210602/lineage-17.1-20210602-UNOFFICIAL-RMX2061.zip",
+      "romtype": "unofficial",
+      "size": 1335584568,
+      "url": "https://github.com/slowtrip/Lineage-OTA/releases/download/RMX2061-20210602/lineage-17.1-20210602-UNOFFICIAL-RMX2061.zip",
       "version": "17.1"
     }
   ]
